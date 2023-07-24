@@ -55,6 +55,11 @@ body {
   background-color: $page-bg;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
 input {
   -webkit-appearance: none;
   box-shadow: none !important;
@@ -290,8 +295,19 @@ section.tag-btns {
     margin-inline: auto;
     gap: 0.2rem;
     transition: 0.3s;
-    img {
+    position: relative;
+    img.tag-btn-icon {
       margin-bottom: 0.4rem;
+      z-index: 99999;
+    }
+    img.tab-btn-img {
+      position: absolute;
+      opacity: 10%;
+      background-color: rgba($color: $focal-color, $alpha: 1);
+      margin-bottom: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
     }
     p {
       color: $highlight-color;

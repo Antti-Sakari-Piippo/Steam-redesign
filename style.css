@@ -13,6 +13,11 @@ body {
   background-color: #1c1d20;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
 input {
   -webkit-appearance: none;
   box-shadow: none !important;
@@ -243,9 +248,21 @@ section.tag-btns .tag-btn {
   margin-inline: auto;
   gap: 0.2rem;
   transition: 0.3s;
+  position: relative;
 }
-section.tag-btns .tag-btn img {
+section.tag-btns .tag-btn img.tag-btn-icon {
   margin-bottom: 0.4rem;
+  z-index: 99999;
+}
+section.tag-btns .tag-btn img.tab-btn-img {
+  position: absolute;
+  opacity: 10%;
+  background-color: #324157;
+  margin-bottom: 0;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 section.tag-btns .tag-btn p {
   color: #6f90c2;
