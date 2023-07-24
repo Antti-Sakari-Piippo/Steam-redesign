@@ -744,7 +744,6 @@ li {
 .carousel__next {
   position: absolute;
   top: 50%;
-  opacity: $hover-opacity;
   width: 2.8rem;
   height: 2.8rem;
   transform: translateY(-50%);
@@ -753,20 +752,18 @@ li {
   text-align: center;
   background: url(/icons/Arrow.svg);
   background-repeat: no-repeat;
-  background-size: 25px 25px;
-  background-color: rgba($color: $bg-color, $alpha: 0.5);
+  background-size: 1rem 1rem;
+  background-color: rgba($color: $bg-color, $alpha: 0.6);
   background-position: 50%;
-  aspect-ratio: 1;
 }
 
 .carousel__prev {
   background: url(/icons/Arrow.svg);
   background-repeat: no-repeat;
   transform: translateY(-50%);
-  background-size: 25px 25px;
-  background-color: rgba($color: $bg-color, $alpha: 0.5);
+  background-color: rgba($color: $bg-color, $alpha: 0.6);
   background-position: 50%;
-  aspect-ratio: 1;
+  background-size: 1rem 1rem;
   rotate: 180deg;
   top: 40%;
 }
