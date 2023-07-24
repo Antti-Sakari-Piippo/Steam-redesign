@@ -8,13 +8,26 @@ $light-color: #ffffff;
 $card-bg-color: #252f40;
 $game-list-bg: #1a2230;
 $game-list-bg: #1c2534;
-$page-bg: #1c1d20;
+$page-bg: linear-gradient(
+  90deg,
+  rgba(26, 27, 31, 1) 0%,
+  rgba(12, 12, 20, 1) 48%,
+  rgba(26, 27, 31, 1) 100%
+);
+
+$header-bg: linear-gradient(
+  349deg,
+  rgb(30 42 59) 0%,
+  rgb(18 26 38) 100%,
+  rgb(9 13 19) 100%
+);
 
 $hover-opacity: 0.8;
+$hover-opacity-high: 0.92;
 
 $transparent-button-color: rgba(
   $color: $darker-color,
-  $alpha: $hover-opacity,
+  $alpha: $hover-opacity-high,
 );
 $button-color: rgba(
   $color: $darker-color,
@@ -52,7 +65,8 @@ $space-700: 7rem;
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: $page-bg;
+  background: rgb(28, 29, 32);
+  background: $page-bg;
 }
 
 img {
@@ -65,7 +79,7 @@ input {
   box-shadow: none !important;
 }
 :-webkit-autofill {
-  color: #fff !important;
+  color: $light-color !important;
 }
 
 nav {
@@ -116,7 +130,7 @@ nav.show {
       content: "\d7";
       position: absolute;
       inset: 0;
-      color: #fff;
+      color: $light-color;
       font-size: $--height;
       line-height: $--height;
       text-align: center;
@@ -139,15 +153,16 @@ ul {
   background-color: $bg-color;
   display: flex;
   position: relative;
-  margin: 2rem 0;
   flex-direction: column;
   gap: $section-vertical-space;
+  margin: 2rem 0 5rem 0;
 }
 
 body {
   max-width: 414px;
   width: $project-width;
   margin-inline: auto;
+  margin: 2rem 0;
 }
 
 * {
@@ -177,7 +192,11 @@ select {
 }
 
 input[type="text"] {
+  color: $light-color;
   cursor: auto;
+  &::placeholder {
+    color: rgba($color: $highlight-color, $alpha: 0.85);
+  }
 }
 
 input[type="submit"]:hover,
@@ -189,14 +208,10 @@ button:hover {
 
 header {
   background: rgb(20, 26, 35);
-  background: linear-gradient(
-    349deg,
-    rgb(26 36 50) 0%,
-    rgb(18 21 26) 100%,
-    rgb(8 11 16) 100%
-  );
+  background: $header-bg;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#141a23",endColorstr="#141a23",GradientType=1);
   padding: $space-100 0;
+
   .header__container {
     display: flex;
     justify-content: space-between;
@@ -212,6 +227,9 @@ header {
       img.logo__image {
         width: 150px;
         aspect-ratio: 1;
+      }
+      a.logo__text {
+        cursor: pointer;
       }
     }
     .header__menu {
@@ -247,7 +265,7 @@ form.search-bar {
   margin-top: -1rem;
 
   input.search-bar__input {
-    color: inherit;
+    color: $light-color;
     font-size: $font-sm;
     background-color: transparent;
     margin-top: 0.3rem;
@@ -255,8 +273,10 @@ form.search-bar {
     border: none;
     width: $project-width;
     padding: 0.35rem 0.1rem;
+    cursor: auto;
     &::placeholder {
       color: inherit;
+      color: rgba($color: $highlight-color, $alpha: 0.85);
     }
   }
   button.search-bar__button {
@@ -345,14 +365,13 @@ section.game-list {
           border-radius: 0.4rem 0.4rem 0 0;
         }
         div {
-          background: $card-bg-color;
+          background: #252f40;
           width: 34px;
           width: 1.25rem;
-          aspect-ratio: 1;
+          aspect-ratio: 1/1.4;
           display: grid;
           place-content: center;
           border-radius: 0.1rem;
-          opacity: 1;
           transition: 0.3s;
           &:hover,
           &:focus {
@@ -453,13 +472,22 @@ section.queue {
       color: $light-color;
       z-index: 99999;
       position: absolute;
-      top: 50%;
-      left: 50%;
+      // top: 50%;
+      // left: 50%;
       transition: 0.3s ease-in-out;
-      transform: translate(-50%, -50%);
-      background-color: rgba($color: $focal-color, $alpha: $hover-opacity);
+      // transform: translate(-50%, -50%);
+      inset: 0;
+      height: fit-content;
+      width: fit-content;
+      margin: auto;
+      background-color: $transparent-button-color;
       padding: 0.6em 3.5em;
       border-radius: 0.5rem;
+      &:hover,
+      &:focus {
+        padding: 0.65em 3.7em;
+        opacity: 0.98;
+      }
     }
     .queue-item {
       aspect-ratio: 16/9;
@@ -472,8 +500,8 @@ section.queue {
       box-shadow: 0 3px 7px rgb(0 0 0 / 0.2);
     }
     .queue__game-2 {
-      width: 37%;
-      margin-left: calc(-1 * $space-200);
+      width: 44%;
+      margin-left: calc(-2.3 * $space-200);
       clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
       z-index: 998;
     }
@@ -645,7 +673,7 @@ li {
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -40%, 70px);
-  color: #fff;
+  color: $light-color;
   font-size: 2em;
 }
 
@@ -762,7 +790,7 @@ li {
   background-color: transparent;
   background-size: 1.5rem 1.5rem;
   background-repeat: no-repeat;
-  color: #fff;
+  color: $light-color;
   // font-size: 2.2rem;
   // line-height: 4rem;
   // text-align: center;
@@ -779,7 +807,7 @@ li {
 
 .actual-steam-site {
   // width: 400%;
-  margin-top: 5.5rem;
+  margin: 2rem 0;
   h2 {
     font-size: $font-lg;
     margin-bottom: 2rem;

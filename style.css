@@ -10,7 +10,8 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #1c1d20;
+  background: rgb(28, 29, 32);
+  background: linear-gradient(90deg, rgb(26, 27, 31) 0%, rgb(12, 12, 20) 48%, rgb(26, 27, 31) 100%);
 }
 
 img {
@@ -24,7 +25,7 @@ input {
 }
 
 :-webkit-autofill {
-  color: #fff !important;
+  color: #ffffff !important;
 }
 
 nav {
@@ -74,7 +75,7 @@ nav.show .close-btn::after {
   content: "×";
   position: absolute;
   inset: 0;
-  color: #fff;
+  color: #ffffff;
   font-size: 2rem;
   line-height: 2rem;
   text-align: center;
@@ -95,15 +96,16 @@ ul {
   background-color: #151b24;
   display: flex;
   position: relative;
-  margin: 2rem 0;
   flex-direction: column;
   gap: 2.2rem;
+  margin: 2rem 0 5rem 0;
 }
 
 body {
   max-width: 414px;
   width: calc(100% - 3rem);
   margin-inline: auto;
+  margin: 2rem 0;
 }
 
 * {
@@ -134,7 +136,14 @@ select {
 }
 
 input[type=text] {
+  color: #ffffff;
   cursor: auto;
+}
+input[type=text]::-moz-placeholder {
+  color: rgba(111, 144, 194, 0.85);
+}
+input[type=text]::placeholder {
+  color: rgba(111, 144, 194, 0.85);
 }
 
 input[type=submit]:hover,
@@ -146,7 +155,7 @@ button:hover {
 
 header {
   background: rgb(20, 26, 35);
-  background: linear-gradient(349deg, rgb(26, 36, 50) 0%, rgb(18, 21, 26) 100%, rgb(8, 11, 16) 100%);
+  background: linear-gradient(349deg, rgb(30, 42, 59) 0%, rgb(18, 26, 38) 100%, rgb(9, 13, 19) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#141a23",endColorstr="#141a23",GradientType=1);
   padding: 1rem 0;
 }
@@ -167,6 +176,9 @@ header .header__container .header__logo {
 header .header__container .header__logo img.logo__image {
   width: 150px;
   aspect-ratio: 1;
+}
+header .header__container .header__logo a.logo__text {
+  cursor: pointer;
 }
 header .header__container .header__menu .header__menu__image {
   transition: 0.3s;
@@ -196,7 +208,7 @@ form.search-bar {
   margin-top: -1rem;
 }
 form.search-bar input.search-bar__input {
-  color: inherit;
+  color: #ffffff;
   font-size: 1.125rem;
   background-color: transparent;
   margin-top: 0.3rem;
@@ -204,12 +216,15 @@ form.search-bar input.search-bar__input {
   border: none;
   width: calc(100% - 3rem);
   padding: 0.35rem 0.1rem;
+  cursor: auto;
 }
 form.search-bar input.search-bar__input::-moz-placeholder {
   color: inherit;
+  color: rgba(111, 144, 194, 0.85);
 }
 form.search-bar input.search-bar__input::placeholder {
   color: inherit;
+  color: rgba(111, 144, 194, 0.85);
 }
 form.search-bar button.search-bar__button {
   background-color: transparent;
@@ -298,11 +313,10 @@ section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__
   background: #252f40;
   width: 34px;
   width: 1.25rem;
-  aspect-ratio: 1;
+  aspect-ratio: 1/1.4;
   display: grid;
   place-content: center;
   border-radius: 0.1rem;
-  opacity: 1;
   transition: 0.3s;
 }
 section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__item div:hover, section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__item div:focus {
@@ -392,13 +406,20 @@ section.queue .queue__game-container .see-all {
   color: #ffffff;
   z-index: 99999;
   position: absolute;
-  top: 50%;
-  left: 50%;
   transition: 0.3s ease-in-out;
-  transform: translate(-50%, -50%);
-  background-color: rgba(50, 65, 87, 0.8);
+  inset: 0;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  background-color: rgba(40, 51, 69, 0.92);
   padding: 0.6em 3.5em;
   border-radius: 0.5rem;
+}
+section.queue .queue__game-container .see-all:hover, section.queue .queue__game-container .see-all:focus {
+  padding: 0.65em 3.7em;
+  opacity: 0.98;
 }
 section.queue .queue__game-container .queue-item {
   aspect-ratio: 16/9;
@@ -411,8 +432,8 @@ section.queue .queue__game-container .queue__game-1 {
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
 }
 section.queue .queue__game-container .queue__game-2 {
-  width: 37%;
-  margin-left: -2rem;
+  width: 44%;
+  margin-left: -4.6rem;
   -webkit-clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
           clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
   z-index: 998;
@@ -530,7 +551,7 @@ li {
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -40%, 70px);
-  color: #fff;
+  color: #ffffff;
   font-size: 2em;
 }
 
@@ -642,7 +663,7 @@ li {
   background-color: transparent;
   background-size: 1.5rem 1.5rem;
   background-repeat: no-repeat;
-  color: #fff;
+  color: #ffffff;
   pointer-events: none;
 }
 
@@ -655,7 +676,7 @@ li {
 }
 
 .actual-steam-site {
-  margin-top: 5.5rem;
+  margin: 2rem 0;
 }
 .actual-steam-site h2 {
   font-size: 2rem;
