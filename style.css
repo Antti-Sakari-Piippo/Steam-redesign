@@ -224,10 +224,6 @@ form.search-bar button.search-bar__button img.search-bar__button__icon {
      object-fit: contain;
   transition: 0.1s;
 }
-form.search-bar button.search-bar__button img.search-bar__button__icon:focus, form.search-bar button.search-bar__button img.search-bar__button__icon:hover {
-  scale: 1.05;
-}
-
 section.tag-btns {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -265,7 +261,9 @@ section.tag-btns .tag-btn img.tab-btn-img {
      object-fit: cover;
 }
 section.tag-btns .tag-btn p {
+  margin-top: 0.3rem;
   color: #6f90c2;
+  font-weight: 600;
 }
 section.tag-btns .tag-btn:hover {
   color: red;
@@ -519,8 +517,11 @@ li {
   position: relative;
   flex: 0 0 100%;
   width: 100%;
+  height: 100%;
   background-color: #151b24;
   counter-increment: item;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .carousel__slide:before {
