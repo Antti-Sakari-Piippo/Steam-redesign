@@ -92,7 +92,7 @@ ul {
   position: relative;
   margin: 2rem 0;
   flex-direction: column;
-  gap: 2.1rem;
+  gap: 2.2rem;
 }
 
 body {
@@ -175,7 +175,7 @@ header .header__container .header__menu .header__menu__image.hide {
 }
 
 section.featured-games {
-  margin-top: -2.1rem;
+  margin-top: -2.2rem;
 }
 
 form.search-bar {
@@ -188,6 +188,7 @@ form.search-bar {
   border: 2px solid #324157;
   width: calc(100% - 3rem);
   border-radius: 0.4rem;
+  margin-top: -1rem;
 }
 form.search-bar input.search-bar__input {
   color: inherit;
@@ -275,7 +276,7 @@ section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__
   transition: 0.3s;
 }
 section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__item p.selected {
-  background-color: #181f2c;
+  background-color: #1c2534;
   border-radius: 0.4rem 0.4rem 0 0;
 }
 section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__item div {
@@ -297,7 +298,7 @@ section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__
 }
 section.game-list .game-list-container {
   background-color: #283345;
-  background-color: #181f2c;
+  background-color: #1c2534;
   border-radius: 0 0 0.26rem 0.26rem;
   padding: 0.8rem;
 }

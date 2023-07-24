@@ -7,7 +7,7 @@ $focal-color: #324157;
 $light-color: #ffffff;
 $card-bg-color: #252f40;
 $game-list-bg: #1a2230;
-$game-list-bg: #181f2c;
+$game-list-bg: #1c2534;
 $page-bg: #1c1d20;
 
 $hover-opacity: 0.8;
@@ -30,7 +30,7 @@ $font-lg: 2rem;
 $section-margin: 1.3rem;
 $project-padding: 1.5rem;
 
-$section-vertical-space: 2.1rem;
+$section-vertical-space: 2.2rem;
 $project-width: calc(100% - (2 * $project-padding));
 
 $space-100: 1rem;
@@ -239,6 +239,7 @@ form.search-bar {
   border: 2px solid $focal-color;
   width: $project-width;
   border-radius: 0.4rem;
+  margin-top: -1rem;
 
   input.search-bar__input {
     color: inherit;
