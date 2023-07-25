@@ -1,3 +1,4 @@
+// Colors
 $bg-color: #151b24;
 $bg-color-2: #131820;
 $highlight-color: #6f90c2;
@@ -14,17 +15,12 @@ $page-bg: linear-gradient(
   rgba(12, 12, 20, 1) 48%,
   rgba(26, 27, 31, 1) 100%
 );
-
 $header-bg: linear-gradient(
   349deg,
   rgb(30 42 59) 0%,
   rgb(18 26 38) 100%,
   rgb(9 13 19) 100%
 );
-
-$hover-opacity: 0.8;
-$hover-opacity-high: 0.92;
-
 $transparent-button-color: rgba(
   $color: $darker-color,
   $alpha: $hover-opacity-high,
@@ -34,18 +30,19 @@ $button-color: rgba(
   $alpha: 1,
 );
 
+// Hover
+$hover-transition-time: 0.25s;
+$hover-opacity: 0.8;
+$hover-opacity-high: 0.92;
+
+// Font size
 $font-legal: 0.7rem;
 $font-xs: 0.9rem;
 $font-sm: 1.125rem;
 $font-md: 1.4rem;
 $font-lg: 2rem;
 
-$section-margin: 1.3rem;
-$project-padding: 1.5rem;
-
-$section-vertical-space: 2.2rem;
-$project-width: calc(100% - (2 * $project-padding));
-
+// Space
 $space-100: 1rem;
 $space-200: 2rem;
 $space-300: 3rem;
@@ -53,6 +50,10 @@ $space-400: 4rem;
 $space-500: 5rem;
 $space-600: 6rem;
 $space-700: 7rem;
+$section-margin: 1.3rem;
+$project-padding: 1.5rem;
+$section-vertical-space: 2.2rem;
+$project-width: calc(100% - (2 * $project-padding));
 
 *,
 *::before,
@@ -63,13 +64,40 @@ $space-700: 7rem;
   padding: 0;
 }
 
+// Scrollbar
+.scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+::-webkit-scrollbar {
+  height: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $focal-color;
+}
+//////////
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: rgb(28, 29, 32);
   background: $page-bg;
+  max-width: 414px;
+  width: $project-width;
+  margin-inline: auto;
+  margin: 2rem 0;
 }
 
-img {
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+img,
+svg {
   display: block;
   max-width: 100%;
 }
@@ -158,19 +186,6 @@ ul {
   margin: 2rem 0 5rem 0;
 }
 
-body {
-  max-width: 414px;
-  width: $project-width;
-  margin-inline: auto;
-  margin: 2rem 0;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  font: inherit;
-}
-
 img,
 picture,
 svg,
@@ -234,7 +249,7 @@ header {
     }
     .header__menu {
       .header__menu__image {
-        transition: 0.3s;
+        transition: $hover-transition-time;
         display: block;
         &:hover,
         &:focus {
@@ -313,7 +328,7 @@ section.tag-btns {
     border: 1px solid $darker-color;
     margin-inline: auto;
     gap: 0.2rem;
-    transition: 0.3s;
+    transition: $hover-transition-time;
     position: relative;
     img.tag-btn-icon {
       margin-bottom: 0.4rem;
@@ -357,7 +372,7 @@ section.game-list {
           &:hover,
           &:focus {
             color: rgba($color: $light-color, $alpha: $hover-opacity);
-            transition: 0.3s;
+            transition: $hover-transition-time;
           }
         }
         p.selected {
@@ -372,7 +387,7 @@ section.game-list {
           display: grid;
           place-content: center;
           border-radius: 0.1rem;
-          transition: 0.3s;
+          transition: $hover-transition-time;
           &:hover,
           &:focus {
             opacity: $hover-opacity;
@@ -448,7 +463,7 @@ section.game-list {
       font-size: $font-sm;
       margin: 0.9rem 0 0.1rem 0;
       font-size: $font-sm;
-      transition: 0.3s;
+      transition: $hover-transition-time;
       &:hover,
       &:focus {
         opacity: $hover-opacity;
@@ -474,7 +489,7 @@ section.queue {
       position: absolute;
       // top: 50%;
       // left: 50%;
-      transition: 0.3s ease-in-out;
+      transition: $hover-transition-time ease-in-out;
       // transform: translate(-50%, -50%);
       inset: 0;
       height: fit-content;
@@ -552,78 +567,10 @@ footer {
   }
 }
 
-// @keyframes toNext {
-//   75% {
-//     left: 0;
-//   }
-//   95% {
-//     left: 100%;
-//   }
-//   98% {
-//     left: 100%;
-//   }
-//   99% {
-//     left: 0;
-//   }
-// }
-
-// @keyframes toStart {
-//   75% {
-//     left: 0;
-//   }
-//   95% {
-//     left: -300%;
-//   }
-//   98% {
-//     left: -300%;
-//   }
-//   99% {
-//     left: 0;
-//   }
-// }
-
-// @keyframes snap {
-//   96% {
-//     scroll-snap-align: center;
-//   }
-//   97% {
-//     scroll-snap-align: none;
-//   }
-//   99% {
-//     scroll-snap-align: none;
-//   }
-//   100% {
-//     scroll-snap-align: center;
-//   }
-// }
-
 body {
   max-width: 37.5rem;
   margin: 0 auto;
   font-family: "Lato", sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-  scrollbar-color: transparent transparent; /* thumb and track color */
-  scrollbar-width: 0px;
-}
-
-*::-webkit-scrollbar {
-  width: 0;
-}
-
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-*::-webkit-scrollbar-thumb {
-  background: transparent;
-  border: none;
-}
-
-* {
-  -ms-overflow-style: none;
 }
 
 ol,

@@ -14,7 +14,7 @@ const games = [
     genre: "Horror - First Person",
     img: "FarCry6.PNG",
     link: "farcry6",
-    price: "49,99€",
+    price: "29,99€",
     op: ["Windows.svg", "Linux.svg", "Apple.svg"],
   },
   {
@@ -22,7 +22,7 @@ const games = [
     genre: "Horror - First Person",
     img: "Darkest Dungeon.PNG",
     link: "darkestdungeons",
-    price: "49,99€",
+    price: "19,99€",
     op: ["Windows.svg", "Linux.svg", "Apple.svg"],
   },
   {
@@ -30,7 +30,7 @@ const games = [
     genre: "Historical - RGB",
     img: "Crusader.PNG",
     link: "crusader",
-    price: "49,99€",
+    price: "39,99€",
     op: ["Windows.svg", "Linux.svg", "Apple.svg"],
   },
   {
@@ -46,7 +46,7 @@ const games = [
     genre: "Sci-fi - Strategy",
     img: "Stellaris.PNG",
     link: "stellaris",
-    price: "49,99€",
+    price: "15,45€",
     op: ["Windows.svg", "Linux.svg", "Apple.svg"],
   },
 ];
