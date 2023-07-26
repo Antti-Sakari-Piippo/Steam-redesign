@@ -63,16 +63,18 @@ nav .legal {
   font-size: 0.7rem;
 }
 nav.show {
-  display: block;
+  display: flex;
+  flex-direction: column;
   position: absolute;
+  justify-content: space-between;
   z-index: 99999;
   background-color: rgba(20, 28, 40, 0.98);
   right: 0;
   top: 0;
   font-size: 1.4rem;
   padding: 2rem;
-  width: 70%;
-  height: 29.5rem;
+  width: 65%;
+  height: 32.5rem;
 }
 nav.show ul {
   margin-top: 3rem;
@@ -216,7 +218,7 @@ form.search-bar {
   color: #6f90c2;
   border: 2px solid #324157;
   width: calc(100% - 3rem);
-  border-radius: 0.4rem;
+  border-radius: 0.4em;
 }
 form.search-bar input.search-bar__input {
   color: #ffffff;
@@ -272,9 +274,10 @@ section.tag-btns .tag-btn {
   gap: 0.2rem;
   transition: 0.25s;
   position: relative;
+  border-radius: 0.26em;
 }
 section.tag-btns .tag-btn img.tag-btn-icon {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.4em;
   z-index: 99999;
 }
 section.tag-btns .tag-btn img.tab-btn-img {
@@ -328,7 +331,6 @@ section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__
   aspect-ratio: 1/1.4;
   display: grid;
   place-content: center;
-  border-radius: 0.1rem;
   transition: 0.25s;
 }
 section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__item div:hover, section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__item div:focus {
@@ -340,7 +342,7 @@ section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__
 section.game-list .game-list-container {
   background-color: #283345;
   background-color: #1c2534;
-  border-radius: 0 0 0.26rem 0.26rem;
+  border-radius: 0 0.26em 0.26em 0.26em;
   padding: 0.8rem;
 }
 section.game-list .game-list-container .game-list-container__games {
@@ -360,6 +362,7 @@ section.game-list .game-list-container .game-list-container__games .game-list__c
 section.game-list .game-list-container .game-list-container__games .game-list__card .game-list__card__img {
   width: 50%;
   aspect-ratio: 21/9;
+  border-radius: 0.26em 0 0 0.26em;
 }
 section.game-list .game-list-container .game-list-container__games .game-list__card .game-list__card-container {
   display: flex;
@@ -388,7 +391,7 @@ section.game-list .game-list-container .game-list-container__games .game-list__c
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 0.4rem;
+  gap: 0.4em;
 }
 section.game-list .game-list-container a.game-list__see-more {
   font-size: 1.125rem;
@@ -405,7 +408,7 @@ section.queue {
   margin-inline: auto;
 }
 section.queue h2.queue__header {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.4em;
 }
 section.queue .queue__game-container {
   position: relative;
@@ -427,7 +430,7 @@ section.queue .queue__game-container .see-all {
   margin: auto;
   background-color: rgba(40, 51, 69, 0.92);
   padding: 0.6em 3.5em;
-  border-radius: 0.5rem;
+  border-radius: 0.4em;
 }
 section.queue .queue__game-container .see-all:hover, section.queue .queue__game-container .see-all:focus {
   padding: 0.65em 3.7em;
@@ -601,7 +604,7 @@ li {
   top: 50%;
   width: 2.8rem;
   aspect-ratio: 1;
-  border-radius: 0.26rem;
+  border-radius: 0.26em;
   background-position: center center;
   text-align: center;
   background: url(/icons/Arrow.svg);

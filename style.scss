@@ -10,6 +10,7 @@ $button-color: $darker-color;
 $card-bg-color: #252f40;
 $game-list-bg: #1a2230;
 $game-list-bg: #1c2534;
+$nav-bg-color: #141c28;
 $slider-arrow-bg: rgba(
   $color: $bg-color,
   $alpha: 0.3,
@@ -19,11 +20,15 @@ $hover-transition-time: 0.25s;
 $hover-opacity: 0.8;
 $hover-opacity-high: 0.92;
 
-// background
+// Background
 $transparent-button-color: rgba(
   $color: $darker-color,
   $alpha: $hover-opacity-high,
 );
+
+// Border-radius
+$border-sm: 0.26em;
+$border-lg: 0.4em;
 
 // Gradient
 $page-bg: linear-gradient(
@@ -126,16 +131,18 @@ nav {
   }
 }
 nav.show {
-  display: block;
+  display: flex;
+  flex-direction: column;
   position: absolute;
+  justify-content: space-between;
   z-index: 99999;
-  background-color: rgba($color: rgb(20 28 40 / 98%), $alpha: 0.98);
+  background-color: rgba($color: $nav-bg-color, $alpha: 0.98);
   right: 0;
   top: 0;
   font-size: $font-md;
   padding: $space-200;
-  width: 70%;
-  height: 29.5rem;
+  width: 65%;
+  height: 32.5rem;
   ul {
     margin-top: 3rem;
     display: flex;
@@ -280,7 +287,7 @@ form.search-bar {
   color: $highlight-color;
   border: 2px solid $focal-color;
   width: $project-width;
-  border-radius: 0.4rem;
+  border-radius: $border-lg;
 
   input.search-bar__input {
     color: $light-color;
@@ -330,8 +337,9 @@ section.tag-btns {
     gap: 0.2rem;
     transition: $hover-transition-time;
     position: relative;
+    border-radius: $border-sm;
     img.tag-btn-icon {
-      margin-bottom: 0.4rem;
+      margin-bottom: $border-lg;
       z-index: 99999;
     }
     img.tab-btn-img {
@@ -386,7 +394,7 @@ section.game-list {
           aspect-ratio: 1/1.4;
           display: grid;
           place-content: center;
-          border-radius: 0.1rem;
+          // border-radius: 0.1rem;
           transition: $hover-transition-time;
           &:hover,
           &:focus {
@@ -403,7 +411,7 @@ section.game-list {
   .game-list-container {
     background-color: $darker-color;
     background-color: $game-list-bg;
-    border-radius: 0 0 0.26rem 0.26rem;
+    border-radius: 0 0.26em 0.26em $border-sm;
     $card-padding: calc($project-padding - 0.7rem);
     padding: $card-padding;
     .game-list-container__games {
@@ -421,6 +429,7 @@ section.game-list {
         .game-list__card__img {
           width: 50%;
           aspect-ratio: 21/9;
+          border-radius: $border-sm 0 0 $border-sm;
         }
         .game-list__card-container {
           display: flex;
@@ -447,7 +456,7 @@ section.game-list {
               display: flex;
               flex-direction: row;
               justify-content: space-between;
-              gap: 0.4rem;
+              gap: $border-lg;
               .game-list__card__os {
               }
             }
@@ -476,7 +485,7 @@ section.queue {
   width: $project-width;
   margin-inline: auto;
   h2.queue__header {
-    margin-bottom: 0.4rem;
+    margin-bottom: $border-lg;
   }
   .queue__game-container {
     position: relative;
@@ -494,7 +503,7 @@ section.queue {
       margin: auto;
       background-color: $transparent-button-color;
       padding: 0.6em 3.5em;
-      border-radius: 0.5rem;
+      border-radius: $border-lg;
       &:hover,
       &:focus {
         padding: 0.65em 3.7em;
@@ -673,7 +682,7 @@ li {
   top: 50%;
   width: 2.8rem;
   aspect-ratio: 1;
-  border-radius: 0.26rem;
+  border-radius: $border-sm;
   background-position: center center;
   text-align: center;
   background: url(/icons/Arrow.svg);
