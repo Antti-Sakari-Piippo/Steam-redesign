@@ -300,7 +300,6 @@ form.search-bar {
     padding: 0.35rem 0.1rem;
     cursor: auto;
     &::placeholder {
-      color: inherit;
       color: rgba($color: $highlight-color, $alpha: 0.85);
     }
   }
@@ -385,16 +384,16 @@ section.game-list {
         }
         p.selected {
           background-color: $game-list-bg;
-          border-radius: 0.4rem 0.4rem 0 0;
+          border-radius: $border-lg $border-lg 0 0;
         }
-        div {
+        .more-arrow {
           background: #252f40;
-          width: 34px;
+          border-radius: $border-sm;
+          width: 2rem;
           width: 1.25rem;
           aspect-ratio: 1/1.4;
           display: grid;
           place-content: center;
-          // border-radius: 0.1rem;
           transition: $hover-transition-time;
           &:hover,
           &:focus {
@@ -411,7 +410,7 @@ section.game-list {
   .game-list-container {
     background-color: $darker-color;
     background-color: $game-list-bg;
-    border-radius: 0 0.26em 0.26em $border-sm;
+    border-radius: 0 $border-sm $border-sm $border-sm;
     $card-padding: calc($project-padding - 0.7rem);
     padding: $card-padding;
     .game-list-container__games {
@@ -424,7 +423,7 @@ section.game-list {
         display: flex;
         background-color: $card-bg-color;
         width: 100%;
-        border-radius: 0.3rem;
+        border-radius: $border-sm;
         cursor: pointer;
         .game-list__card__img {
           width: 50%;
@@ -518,7 +517,7 @@ section.queue {
     .queue__game-1 {
       width: 40%;
       z-index: 999;
-      box-shadow: 0 3px 7px rgb(0 0 0 / 0.2);
+      box-shadow: 0 0px 3px rgb(0 0 0 / 0.2);
     }
     .queue__game-2 {
       width: 44%;

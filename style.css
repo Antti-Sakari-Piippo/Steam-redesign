@@ -232,11 +232,9 @@ form.search-bar input.search-bar__input {
   cursor: auto;
 }
 form.search-bar input.search-bar__input::-moz-placeholder {
-  color: inherit;
   color: rgba(111, 144, 194, 0.85);
 }
 form.search-bar input.search-bar__input::placeholder {
-  color: inherit;
   color: rgba(111, 144, 194, 0.85);
 }
 form.search-bar button.search-bar__button {
@@ -322,21 +320,22 @@ section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__
 }
 section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__item p.selected {
   background-color: #1c2534;
-  border-radius: 0.4rem 0.4rem 0 0;
+  border-radius: 0.4em 0.4em 0 0;
 }
-section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__item div {
+section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__item .more-arrow {
   background: #252f40;
-  width: 34px;
+  border-radius: 0.26em;
+  width: 2rem;
   width: 1.25rem;
   aspect-ratio: 1/1.4;
   display: grid;
   place-content: center;
   transition: 0.25s;
 }
-section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__item div:hover, section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__item div:focus {
+section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__item .more-arrow:hover, section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__item .more-arrow:focus {
   opacity: 0.8;
 }
-section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__item div img {
+section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__item .more-arrow img {
   aspect-ratio: 1;
 }
 section.game-list .game-list-container {
@@ -356,7 +355,7 @@ section.game-list .game-list-container .game-list-container__games .game-list__c
   display: flex;
   background-color: #252f40;
   width: 100%;
-  border-radius: 0.3rem;
+  border-radius: 0.26em;
   cursor: pointer;
 }
 section.game-list .game-list-container .game-list-container__games .game-list__card .game-list__card__img {
@@ -444,7 +443,7 @@ section.queue .queue__game-container .queue-item {
 section.queue .queue__game-container .queue__game-1 {
   width: 40%;
   z-index: 999;
-  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2);
 }
 section.queue .queue__game-container .queue__game-2 {
   width: 44%;
