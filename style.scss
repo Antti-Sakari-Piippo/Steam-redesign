@@ -361,6 +361,10 @@ section.tag-btns {
     }
   }
 }
+.selected {
+  background-color: $game-list-bg;
+  border-radius: $border-lg $border-lg 0 0;
+}
 section.game-list {
   width: $project-width;
   margin-inline: auto;
@@ -372,6 +376,8 @@ section.game-list {
       align-items: center;
       .game-list__tabs__item {
         p {
+          display: grid;
+          place-content: center;
           font-size: $font-sm;
           padding: 0.5rem $space-200;
           cursor: pointer;
@@ -539,7 +545,8 @@ footer {
   .footer-container {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
     margin-inline: auto;
     width: 100%;
     text-align: center;
