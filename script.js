@@ -1,6 +1,7 @@
 const gameListTabsItems = document.getElementsByClassName("tab");
 // const closeBtn = document.getElementById("close-btn");
 const menuBtn = document.getElementById("menu-btn");
+const menuUl = document.getElementById("menu-ul");
 const nav = document.getElementById("nav");
 const gameListContainer = document.getElementById("game-list-container__games");
 
@@ -114,6 +115,10 @@ for (elem of gameListTabsItems) {
 menuBtn.addEventListener("click", function (e) {
   nav.classList.add("show");
   menuBtn.classList.add("hide");
+
+  menuUl.setAttribute("aria-expanded", true);
+  menuUl.setAttribute("aria-hidden", false);
+  menuBtn.setAttribute("aria-expanded", true);
 });
 
 window.addEventListener("click", function (e) {
@@ -123,6 +128,10 @@ window.addEventListener("click", function (e) {
   ) {
     nav.classList.remove("show");
     menuBtn.classList.remove("hide");
+
+    menuUl.setAttribute("aria-expanded", false);
+    menuUl.setAttribute("aria-hidden", true);
+    menuBtn.setAttribute("aria-expanded", false);
   }
 });
 

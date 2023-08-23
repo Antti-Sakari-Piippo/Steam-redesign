@@ -14,154 +14,173 @@
             <div class="header__container">
                 <div class="header__logo">
                     <img class="logo__image" src="/icons/steam 1.svg" alt="steam logo">
-                    <a href="#" class="logo__text">STEAM</>
+                    <a href="#" class="logo__link">STEAM</>
                 </div>
-                <div class="header__menu">
-                    <img class="header__menu__image" id="menu-btn" src="/icons/Steam_menu.svg" />
+                <div class="header__menu"">
+                    <button class="header__menu__button" id="menu-btn" aria-controls="menu-ul" aria-expanded="false" aria-haspopup="true">
+                        <img class="header__menu__image" src="/icons/Steam_menu.svg" alt="Menu Button">
+                    </button>
                 </div>
             </div>
             <nav id="nav">
-                <ul>
-                    <li><a class="nav__link" href="#">Sign In</a></li>
-                    <li><a class="nav__link" href="#">Store</a></li>
-                    <li><a class="nav__link" href="#">Community</a></li>
-                    <li><a class="nav__link" href="#">Support</a></li>
-                    <li><a class="nav__link" href="#">Settings</a></li>
+                <ul aria-hidden="true" id="menu-ul" aria-label="Main Menu">
+                    <li><a class="nav__link" aria-label="Sign" href="#">Sign In</a></li>
+                    <li><a class="nav__link" aria-label="Store" href="#">Store</a></li>
+                    <li><a class="nav__link" aria-label="Community" href="#">Community</a></li>
+                    <li><a class="nav__link" aria-label="Support" href="#">Support</a></li>
+                    <li><a class="nav__link" aria-label="Settings" href="#">Settings</a></li>
                 </ul>
                 <div class="legal">
                     <p><img src="/icons/Valve_logo.svg" alt="valve"></p>
-                    <p>©Valve Corporation. Kaikki oikeudet pidätetään. Kaikki tavaramerkit ovat omistajiensa omaisuutta Yhdysvalloissa ja kaikkialla maailmassa</p>
+                    <p>© Valve Corporation. All rights reserved. All trademarks are property of their respective owners in the US and other countries</p>
                 </di>
             </nav>
         </header>
         <section class="featured-games scroll">
-            <section class="carousel" aria-label="Gallery">
+            <section class="carousel" aria-label="Featured Games Gallery">
                 <ol class="carousel__viewport">
-                  <li id="carousel__slide1"
-                      tabindex="0"
-                      class="carousel__slide">
-                    <div class="carousel__snapper">
-                        <img id="carousel__slide1" src="/images/PUBG.PNG" alt="">
-                      <a href="#carousel__slide3"
-                         class="carousel__prev"></a>
-                      <a href="#carousel__slide2"
-                         class="carousel__next">
-                    </a>
-                    </div>
-                  </li>
-                  <li id="carousel__slide2"
-                      tabindex="0"
-                      class="carousel__slide">
-                      <div class="carousel__snapper">
-                        <img id="carousel__slide1" src="/images/FarCry6.PNG" alt="">
-                    <a href="#carousel__slide1"
-                       class="carousel__prev">
-                    </a>
-                    <a href="#carousel__slide3"
-                       class="carousel__next"></a>
-                    </div>
-                  </li>
-                  <li id="carousel__slide3"
-                      tabindex="0"
-                      class="carousel__slide">
-                    <div class="carousel__snapper">
-                        <img id="carousel__slide1" src="/images/Darkest Dungeon.PNG" alt="">
-                        <a href="#carousel__slide2"
-                        class="carousel__prev"></a>
-                        <a href="#carousel__slide1"
-                        class="carousel__next"></a>
-                    </div>
-                  </li>
+                    <li id="carousel__slide1"
+                        tabindex="0"
+                        class="carousel__slide">
+                        <div class="carousel__snapper">
+                            <img src="/images/PUBG.PNG" alt="PUBG">
+                            <a href="#carousel__slide3"
+                               class="carousel__prev" aria-label="Previous Slide"></a>
+                            <a href="#carousel__slide2"
+                               class="carousel__next" aria-label="Next Slide"></a>
+                        </div>
+                    </li>
+                    <li id="carousel__slide2"
+                        tabindex="0"
+                        class="carousel__slide">
+                        <div class="carousel__snapper">
+                            <img src="/images/FarCry6.PNG" alt="FarCry6">
+                            <a href="#carousel__slide1"
+                               class="carousel__prev" aria-label="Previous Slide"></a>
+                            <a href="#carousel__slide3"
+                               class="carousel__next" aria-label="Next Slide"></a>
+                        </div>
+                    </li>
+                    <li id="carousel__slide3"
+                        tabindex="0"
+                        class="carousel__slide">
+                        <div class="carousel__snapper">
+                            <img src="/images/Darkest Dungeon.PNG" alt="Darkest Dungeon">
+                            <a href="#carousel__slide2"
+                               class="carousel__prev" aria-label="Previous Slide"></a>
+                            <a href="#carousel__slide1"
+                               class="carousel__next" aria-label="Next Slide"></a>
+                        </div>
+                    </li>
                 </ol>
                 <aside class="carousel__navigation">
-                  <ol class="carousel__navigation-list">
-                    <li class="carousel__navigation-item">
-                      <a href="#carousel__slide1"
-                         class="carousel__navigation-button"></a>
-                    </li>
-                    <li class="carousel__navigation-item">
-                      <a href="#carousel__slide2"
-                         class="carousel__navigation-button"></a>
-                    </li>
-                    <li class="carousel__navigation-item">
-                      <a href="#carousel__slide3"
-                         class="carousel__navigation-button"></a>
-                    </li>
-                  </ol>
+                    <ol class="carousel__navigation-list">
+                        <li class="carousel__navigation-item">
+                            <a href="#carousel__slide1"
+                               class="carousel__navigation-button" aria-label="Go to Slide 1"></a>
+                        </li>
+                        <li class="carousel__navigation-item">
+                            <a href="#carousel__slide2"
+                               class="carousel__navigation-button" aria-label="Go to Slide 2"></a>
+                        </li>
+                        <li class="carousel__navigation-item">
+                            <a href="#carousel__slide3"
+                               class="carousel__navigation-button" aria-label="Go to Slide 3"></a>
+                        </li>
+                    </ol>
                 </aside>
-              </section>
+            </section>
         </section>
-        <form class="search-bar" action="">
-            <input type="text" class="search-bar__input" placeholder="Search" name="q">
-            <button class="search-bar__button" type="submit"><img class="search-bar__button__icon" src="/icons/Search_icon.svg" alt="search"></button>
+        <form class="search-bar" id="site-search" role="search" aria-label="Site wide">
+            <input type="text" class="search-bar__input" placeholder="Search" name="search">
+            <button class="search-bar__button" value="Submit" type="submit" aria-label="Search">
+                <img class="search-bar__button__icon" src="/icons/Search_icon.svg" alt="Search">
+            </button>
         </form>
-        <section class="tag-btns">
-            <div class="tag-btn">
-                <img class="tab-btn-icon" src="/icons/New.svg" alt="">
-                <img class="tab-btn-img" src="/images/Crusader.PNG" alt="">
-                <p>NEW</p>
+        <section class="tag-btns" aria-label="Find games from different categories">
+            <div class="tag-btn" aria-label="New Games">
+                <img class="tab-btn-icon" src="/icons/New.svg" alt="New icon" aria-hidden="true">
+                <img class="tab-btn-img" src="/images/Crusader.PNG" alt="Crusader" aria-hidden="true">
+                <p aria-hidden="true">NEW</p>
             </div>
-            <div class="tag-btn">
-                <img class="tab-btn-icon" src="/icons/Tags.svg" alt="">
-                <img class="tab-btn-img" src="/images/Darkest Dungeon.PNG" alt="">
-                <p>TAGS</p>
+            <div class="tag-btn" aria-label="Tags">
+                <img class="tab-btn-icon" src="/icons/Tags.svg" alt="Tags icon" aria-hidden="true">
+                <img class="tab-btn-img" src="/images/Darkest Dungeon.PNG" alt="Darkest Dungeon" aria-hidden="true">
+                <p aria-hidden="true">TAGS</p>
             </div>
-            <div class="tag-btn">
-                <img class="tab-btn-icon" src="/icons/Special.svg" alt="">
-                <img class="tab-btn-img" src="/images/PUBG.PNG" alt="">
-                <p>SPECIAL</p>
+            <div class="tag-btn" aria-label="Special Games">
+                <img class="tab-btn-icon" src="/icons/Special.svg" alt="Special icon" aria-hidden="true">
+                <img class="tab-btn-img" src="/images/PUBG.PNG" alt="PUBG" aria-hidden="true">
+                <p aria-hidden="true">SPECIAL</p>
             </div>
-            <div class="tag-btn">
-                <img class="tab-btn-icon" src="/icons/Free.svg" alt="">
-                <img class="tab-btn-img" src="/images/Stellaris.PNG" alt="">
-                <p>FREE</p>
+            <div class="tag-btn" aria-label="Free Games">
+                <img class="tab-btn-icon" src="/icons/Free.svg" alt="Free icon" aria-hidden="true">
+                <img class="tab-btn-img" src="/images/Stellaris.PNG" alt="Stellaris" aria-hidden="true">
+                <p aria-hidden="true">FREE</p>
             </div>
         </section>
-        <section class="game-list">
+        <section class="game-list" aria-label="A list of games under tabs">
             <div class="game-list__tabs-container">
-                <div class="game-list__tabs">
-                    <div class="game-list__tabs__item"><p class="selected tab" id="tab-1">New</p></div>
-                    <div class="game-list__tabs__item"><p class="tab" id="tab-2">Top</p></div>
-                    <div class="game-list__tabs__item"><p class="tab" id="tab-3">Upcoming</p></div>
-                    <div class="game-list__tabs__item"><p class="tab" id="tab-4">Trending</p></div>
-                    <div class="more-arrow"><img src="/icons/Arrow.svg" alt=""></div>
+                <div class="game-list__tabs" aria-label="Tabs">
+                    <div class="game-list__tabs__item" aria-label="New">
+                        <p class="selected tab" id="tab-1" aria-hidden="true">New</p>
+                    </div>
+                    <div class="game-list__tabs__item" aria-label="Top">
+                        <p class="tab" id="tab-2" aria-hidden="true">Top</p>
+                    </div>
+                    <div class="game-list__tabs__item" aria-label="Upcoming">
+                        <p class="tab" id="tab-3" aria-hidden="true">Upcoming</p>
+                    </div>
+                    <div class="game-list__tabs__item" aria-label="Trending">
+                        <p class="tab" id="tab-4" aria-hidden="true">Trending</p>
+                    </div>
+                    <div class="more-arrow" aria-hidden="true">
+                        <img src="/icons/Arrow.svg" alt="Reveal more tabs">
+                    </div>
                 </div>
             </div>
             <div class="game-list-container">
-                <div class="game-list-container__games" id="game-list-container__games"></div>
-                <a href="" class="game-list__see-more">See all</a>
+                <div class="game-list-container__games" id="game-list-container__games" aria-label="Games"></div>
+                <a href="#" class="game-list__see-more" aria-label="See all">See all</a>
             </div>
         </section>
-        <section class="queue">
-            <h2 class="queue__header">YOUR DISCOVERY QUEUE</h2>
+        <section class="queue" aria-label="Your discovery queue">
+            <h2 class="queue__header" aria-hidden="true">YOUR DISCOVERY QUEUE</h2>
             <div class="queue__game-container">
-                <button class="see-all">See all</button>
-                <img src="images/PUBG.PNG" class="queue-item queue__game-1">
-                <img src="images/Stellaris.PNG" class="queue-item queue__game-2">
-                <img src="images/FarCry6.PNG" class="queue-item queue__game-3">
+                <button class="see-all" aria-label="see all in discovery queue">See all</button>
+                <img src="images/PUBG.PNG" class="queue-item queue__game-1" aria-hidden="true">
+                <img src="images/Stellaris.PNG" class="queue-item queue__game-2" aria-hidden="true">
+                <img src="images/FarCry6.PNG" class="queue-item queue__game-3" aria-hidden="true">
             </div>
         </section>
         <footer>
-            <div class="footer-container">
-                <ul>
-                   <li><a href="">Privacy Policy</a>|</li>
-                   <li><a href="">Legal</a>|</li>
-                   <li><a href="">Cookies</a></li>
-               </ul>
-               <ul>
-                   <li><a href="">Steam Subscriber Agreement</a>|</li>
-                   <li><a href="">Refunds</a></li>
-               </ul>
+            <div class="footer-container" aria-labelledby="footer-heading">
+                <div>
+                    <h2 class="visually-hidden" id="footer-heading">Footer Links</h2>
+                    <div role="group" class="footer__links" aria-label="Footer links">
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Legal</a></li>
+                            <li><a href="#">Cookies</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">Steam Subscriber Agreement</a></li>
+                            <li><a href="#">Refunds</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-             <div class="footer__bottom">
-                <h4 class="footer__bottom__copyright">Copyright © 2023 Valve Corporation</h4>
-                <img class="footer__bottom__img" src="/icons/Valve_logo.svg" alt="valve logo">
-             </div> 
+            <div class="footer__bottom">
+                <h4 class="footer__bottom__copyright">
+                    &copy; 2023 Valve Corporation
+                </h4>
+                <img class="footer__bottom__img" src="/icons/Valve_logo.svg" alt="Valve logo" aria-hidden="true">
+            </div>
         </footer>
     </div>
-    <div class="actual-steam-site">
-        <h2>Actual Steam mobile view</h2>
-        <img src="/images/actualSteamSite.png" alt="actual steam site">
+    <div class="actual-steam-site" aria-label="The actual Steam mobile site view is shown for comparison, and it looks like shit">
+        <h2 aria-hidden="true">Actual Steam mobile view</h2>
+        <img src="/images/actualSteamSite.png" alt="actual steam site" aria-hidden="true">
     </div>
 </body>
 </html>

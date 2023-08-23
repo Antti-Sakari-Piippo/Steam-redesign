@@ -22,6 +22,17 @@
   background: #324157;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: rgb(28, 29, 32);
@@ -191,7 +202,7 @@ header .header__container .header__logo img.logo__image {
   width: 150px;
   aspect-ratio: 1;
 }
-header .header__container .header__logo a.logo__text {
+header .header__container .header__logo a.logo__link {
   cursor: pointer;
 }
 header .header__container .header__menu .header__menu__image {
@@ -203,6 +214,17 @@ header .header__container .header__menu .header__menu__image:hover, header .head
 }
 header .header__container .header__menu .header__menu__image.hide {
   display: none;
+}
+header .header__container .header__menu .header__menu__button {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 0; /* Hide text content */
+}
+header .header__container .header__menu .header__menu__button:focus {
+  outline: none; /* Remove outline on focus for better visual appearance */
 }
 
 section.featured-games {
@@ -354,7 +376,7 @@ section.game-list .game-list-container {
 section.game-list .game-list-container .game-list-container__games {
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
+  gap: 0.5rem;
   margin-bottom: 2rem;
   padding-right: 0;
 }
@@ -470,7 +492,7 @@ footer {
   width: calc(100% - 3rem);
   margin-inline: auto;
 }
-footer .footer-container {
+footer .footer-container .footer__links {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -480,12 +502,12 @@ footer .footer-container {
   text-align: center;
   gap: 0.5rem;
 }
-footer .footer-container ul {
+footer .footer-container .footer__links ul {
   display: flex;
   white-space: nowrap;
   gap: 0.5rem;
 }
-footer .footer-container ul li a {
+footer .footer-container .footer__links ul li a {
   margin-right: 0.5rem;
 }
 footer .footer__bottom {
