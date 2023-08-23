@@ -1,5 +1,4 @@
 const gameListTabsItems = document.getElementsByClassName("tab");
-// const closeBtn = document.getElementById("close-btn");
 const menuBtn = document.getElementById("menu-btn");
 const menuUl = document.getElementById("menu-ul");
 const nav = document.getElementById("nav");
@@ -136,15 +135,7 @@ window.addEventListener("click", function (e) {
 });
 
 const getGame = (games) => {
-  //remove old game cards
-  var doubled = games.map(function (game) {
-    console.log(game.game.op[0]);
-    // return game.game.op;
-    return game.game.op[0];
-  });
-
   for (item of gameListElems) {
-    // console.log("item", item);
     item.innerHTML = "";
   }
 
