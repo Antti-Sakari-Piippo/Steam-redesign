@@ -87,7 +87,8 @@ const gameList = [
 ];
 
 for (elem of gameListTabsItems) {
-  elem.addEventListener("click", function () {
+  elem.addEventListener("click", function (e) {
+    e.preventDefault();
     for (elem of gameListTabsItems) {
       elem.classList.remove("selected");
     }
@@ -112,6 +113,7 @@ for (elem of gameListTabsItems) {
 }
 
 menuBtn.addEventListener("click", function (e) {
+  e.preventDefault();
   nav.classList.add("show");
   menuBtn.classList.add("hide");
   menuBtn.focus();
@@ -121,6 +123,7 @@ menuBtn.addEventListener("click", function (e) {
 });
 
 window.addEventListener("click", function (e) {
+  e.preventDefault();
   if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
     nav.classList.remove("show");
     menuBtn.classList.remove("hide");
@@ -137,38 +140,67 @@ const getGame = (games) => {
   }
 
   for (elem of games) {
-    let gameCardContent = `
-    <div class="game-list__card">
-    <img class="game-list__card__img" src="/images/${elem.game.img}">
-    <div class="game-list__card-container">
-        <div class="game-list__card-title-genre-container">
-          <h3 class="game-list__card__title">${elem.game.name}</h3>
-          <h4 class="game-list__card__genre">${elem.game.genre}</h4>
-        </div>
-        <div class="game-list__card__os__price-container">
-            <div class="game-list__card__os-container" id="game-list__card__os-container">
-            <img class="game-list__card__os" src="/icons/${
-              elem.game.op[0] && elem.game.op[0]
-            }"  />
-            <img class="game-list__card__os" src="/icons/${
-              elem.game.op[1] && elem.game.op[1]
-            }" />
-            <img class="game-list__card__os" src="/icons/${
-              elem.game.op[2] && elem.game.op[2]
-            }" />
-            </div>
-            <div class="game-list__card__price-container">
-                <h3 class="game-list__card__price highlight-color">${
-                  elem.game.price
-                }</h3>
-            </div>
-        </div>
-        </div>
-        </div>`;
+    const gameCard = document.createElement("article");
+    gameCard.classList.add("game-list__card");
+    gameCard.setAttribute("role", "article");
+    gameCard.setAttribute("tabindex", "0");
 
-    const gameCard = document.createElement("div");
+    const gameImg = document.createElement("img");
+    gameImg.classList.add("game-list__card__img");
+    gameImg.src = `/images/${elem.game.img}`;
+    gameImg.alt = `${elem.game.name} Cover Image`;
+
+    const gameCardContent = document.createElement("div");
+    gameCardContent.classList.add("game-list__card-container");
+
+    const titleGenreContainer = document.createElement("div");
+    titleGenreContainer.classList.add("game-list__card-title-genre-container");
+
+    const gameTitle = document.createElement("h3");
+    gameTitle.classList.add("game-list__card__title");
+    gameTitle.textContent = elem.game.name;
+
+    const gameGenre = document.createElement("h4");
+    gameGenre.classList.add("game-list__card__genre");
+    gameGenre.textContent = elem.game.genre;
+
+    titleGenreContainer.appendChild(gameTitle);
+    titleGenreContainer.appendChild(gameGenre);
+
+    const osPriceContainer = document.createElement("div");
+    osPriceContainer.classList.add("game-list__card__os__price-container");
+
+    const osContainer = document.createElement("div");
+    osContainer.classList.add("game-list__card__os-container");
+
+    for (let op of elem.game.op) {
+      if (op) {
+        const osImg = document.createElement("img");
+        osImg.classList.add("game-list__card__os");
+        osImg.src = `/icons/${op}`;
+        osContainer.appendChild(osImg);
+      }
+    }
+
+    const priceContainer = document.createElement("div");
+    priceContainer.classList.add("game-list__card__price-container");
+
+    const gamePrice = document.createElement("h3");
+    gamePrice.classList.add("game-list__card__price", "highlight-color");
+    gamePrice.textContent = elem.game.price;
+
+    priceContainer.appendChild(gamePrice);
+
+    osPriceContainer.appendChild(osContainer);
+    osPriceContainer.appendChild(priceContainer);
+
+    gameCardContent.appendChild(titleGenreContainer);
+    gameCardContent.appendChild(osPriceContainer);
+
+    gameCard.appendChild(gameImg);
+    gameCard.appendChild(gameCardContent);
+
     gameListContainer.appendChild(gameCard);
-    gameCard.innerHTML = gameCardContent;
   }
 };
 
