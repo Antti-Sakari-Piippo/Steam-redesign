@@ -329,7 +329,7 @@ section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__
   background-color: #1c2534;
   border-radius: 0.4em 0.4em 0 0;
 }
-section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__item .more-arrow {
+section.game-list .game-list__tabs-container .game-list__tabs .more-arrow {
   background: #252f40;
   border-radius: 0.26em;
   width: 2rem;
@@ -339,10 +339,10 @@ section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__
   place-content: center;
   transition: 0.25s;
 }
-section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__item .more-arrow:hover, section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__item .more-arrow:focus {
+section.game-list .game-list__tabs-container .game-list__tabs .more-arrow:hover, section.game-list .game-list__tabs-container .game-list__tabs .more-arrow:focus {
   opacity: 0.8;
 }
-section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__item .more-arrow img {
+section.game-list .game-list__tabs-container .game-list__tabs .more-arrow img {
   aspect-ratio: 1;
 }
 section.game-list .game-list-container {
