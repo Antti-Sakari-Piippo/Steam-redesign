@@ -114,20 +114,17 @@ for (elem of gameListTabsItems) {
 menuBtn.addEventListener("click", function (e) {
   nav.classList.add("show");
   menuBtn.classList.add("hide");
-
+  menuBtn.focus();
   menuUl.setAttribute("aria-expanded", true);
   menuUl.setAttribute("aria-hidden", false);
   menuBtn.setAttribute("aria-expanded", true);
 });
 
 window.addEventListener("click", function (e) {
-  if (
-    !document.getElementById("nav").contains(e.target) &&
-    !document.getElementById("menu-btn").contains(e.target)
-  ) {
+  if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
     nav.classList.remove("show");
     menuBtn.classList.remove("hide");
-
+    menuBtn.focus();
     menuUl.setAttribute("aria-expanded", false);
     menuUl.setAttribute("aria-hidden", true);
     menuBtn.setAttribute("aria-expanded", false);
