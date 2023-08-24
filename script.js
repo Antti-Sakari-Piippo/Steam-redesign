@@ -1,5 +1,6 @@
 const gameListTabsItems = document.getElementsByClassName("tab");
 const menuBtn = document.getElementById("menu-btn");
+const searchBar = document.getElementById("search-bar__input");
 const menuUl = document.getElementById("menu-ul");
 const nav = document.getElementById("nav");
 const gameListContainer = document.getElementById("game-list-container__games");
@@ -95,48 +96,30 @@ for (elem of gameListTabsItems) {
     this.classList.add("selected");
     switch (this.id) {
       case "tab-1":
-        getGame(gameList[0]);
+        getGame(gameList[0], "New");
         break;
       case "tab-2":
-        getGame(gameList[1]);
+        getGame(gameList[1], "Top");
         break;
       case "tab-3":
-        getGame(gameList[2]);
+        getGame(gameList[2], "Upcoming");
         break;
       case "tab-4":
-        getGame(gameList[3]);
+        getGame(gameList[3], "Trending");
         break;
       default:
-        getGame(gameList[0]);
+        getGame(gameList[0], "New");
     }
   });
 }
 
-menuBtn.addEventListener("click", function () {
-  nav.classList.add("show");
-  menuBtn.classList.add("hide");
-  menuBtn.focus();
-  menuUl.setAttribute("aria-expanded", true);
-  menuUl.setAttribute("aria-hidden", false);
-  menuBtn.setAttribute("aria-expanded", true);
-});
-
-window.addEventListener("click", function () {
-  if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
-    nav.classList.remove("show");
-    menuBtn.classList.remove("hide");
-    menuBtn.focus();
-    menuUl.setAttribute("aria-expanded", false);
-    menuUl.setAttribute("aria-hidden", true);
-    menuBtn.setAttribute("aria-expanded", false);
-  }
-});
-
-const getGame = (games) => {
+const getGame = (games, tabLabel) => {
+  //clear previously created game cards
   for (item of gameListElems) {
     item.innerHTML = "";
   }
 
+  //create game cards
   for (elem of games) {
     const gameCard = document.createElement("article");
     gameCard.classList.add("game-list__card");
@@ -203,3 +186,28 @@ const getGame = (games) => {
 };
 
 getGame(gameList[0]);
+
+/////////////////////////
+menuBtn.addEventListener("click", function () {
+  nav.classList.add("show");
+  menuBtn.classList.add("hide");
+  menuBtn.focus();
+  menuUl.setAttribute("aria-expanded", true);
+  menuUl.setAttribute("aria-hidden", false);
+  menuBtn.setAttribute("aria-expanded", true);
+});
+
+window.addEventListener("click", function (e) {
+  if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
+    nav.classList.remove("show");
+    menuBtn.classList.remove("hide");
+    menuBtn.focus();
+    menuUl.setAttribute("aria-expanded", false);
+    menuUl.setAttribute("aria-hidden", true);
+    menuBtn.setAttribute("aria-expanded", false);
+  }
+  // Set focus to search bar if the click event did not occur on the menu button or navigation
+  if (searchBar.contains(e.target)) {
+    searchBar.focus();
+  }
+});

@@ -314,6 +314,7 @@ section.tag-btns .tag-btn p {
   margin-top: 0.3rem;
   color: #6f90c2;
   font-weight: 600;
+  z-index: 99999;
 }
 section.tag-btns .tag-btn:hover {
   color: red;

@@ -378,6 +378,7 @@ section.tag-btns {
       margin-top: 0.3rem;
       color: $highlight-color;
       font-weight: 600;
+      z-index: 99999;
     }
     &:hover {
       color: red;
