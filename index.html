@@ -14,10 +14,10 @@
     <div class="steam-site">
         <header>
             <div class="header__container">
-                <div class="header__logo">
-                    <img class="logo__image" src="/icons/steam 1.svg" alt="steam logo">
-                    <a href="#" class="logo__link">STEAM</>
-                </div>
+                <a role="button" href="#" class="header__logo" aria-label="Home">
+                    <img class="logo__image" src="/icons/steam 1.svg" alt="Steam logo" aria-hidden="true">
+                    <p href="#" class="logo__link" aria-hidden="true">STEAM</p>
+                </a>
                 <div class="header__menu"">
                     <button class="header__menu__button" id="menu-btn" aria-controls="menu-ul" aria-expanded="false" aria-haspopup="true">
                         <img class="header__menu__image" src="/icons/Steam_menu.svg" alt="Menu Button">
@@ -180,7 +180,7 @@
             </div>
         </footer>
     </div>
-    <div class="actual-steam-site" aria-label="The actual Steam mobile site view is shown for comparison, and it looks like shit">
+    <div class="actual-steam-site" aria-label="The actual Steam mobile site view is shown for comparison">
         <h2 aria-hidden="true">Actual Steam mobile view</h2>
         <img src="/images/actualSteamSite.png" alt="actual steam site" aria-hidden="true">
     </div>
