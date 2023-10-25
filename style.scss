@@ -74,6 +74,82 @@ $project-width: calc(100% - (2 * $project-padding));
   padding: 0;
 }
 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: rgb(28, 29, 32);
+  background: $page-bg;
+  max-width: 37.5rem;
+  width: $project-width;
+  margin-inline: auto;
+  margin: 0 auto;
+  font-family: "Lato", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: $light-color;
+}
+
+ol,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+input {
+  -webkit-appearance: none;
+  box-shadow: none !important;
+}
+:-webkit-autofill {
+  color: $light-color !important;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
+  border: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+input[type="text"] {
+  color: $light-color;
+  cursor: auto;
+  &::placeholder {
+    color: rgba($color: $highlight-color, $alpha: $hover-opacity);
+  }
+}
+
+input[type="submit"]:hover,
+button:hover {
+  opacity: 1;
+  background-color: $button-color !important;
+  outline: none;
+}
+
 // Scrollbar
 .scroll {
   overflow-x: auto;
@@ -88,8 +164,7 @@ $project-width: calc(100% - (2 * $project-padding));
 ::-webkit-scrollbar-thumb {
   background: $focal-color;
 }
-//////////
-// VISUALLY HIDDEN
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -100,38 +175,175 @@ $project-width: calc(100% - (2 * $project-padding));
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
-////////
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: rgb(28, 29, 32);
-  background: $page-bg;
-  max-width: 414px;
-  width: $project-width;
+// CAROUSEL
+.carousel {
+  position: relative;
+  padding-top: 75%;
+  filter: drop-shadow(0 0 10px #0003);
+  perspective: 100px;
+
+  .carousel__viewport {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    overflow-x: scroll;
+    counter-reset: item;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+  }
+  .carousel__slide {
+    position: relative;
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    background-color: $bg-color;
+    counter-increment: item;
+    object-fit: cover;
+  }
+  .carousel__snapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: center;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  @media (hover: hover) {
+    .carousel__snapper {
+      animation-name: toNext, snap;
+      animation-timing-function: ease;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+    }
+
+    .carousel__slide:last-child .carousel__snapper {
+      animation-name: toStart, snap;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .carousel__snapper {
+      animation-name: none;
+    }
+  }
+  &:hover .carousel__snapper,
+  &:focus-within .carousel__snapper {
+    animation-name: none;
+  }
+  // .carousel__navigation {
+  //   display: none;
+  //   position: absolute;
+  //   right: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   text-align: center;
+  // }
+  // .carousel__navigation-list,
+  // .carousel__navigation-item {
+  //   display: inline-block;
+  // }
+  .carousel__navigation-button {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-clip: content-box;
+    border: 0.25rem solid transparent;
+    border-radius: 50%;
+    font-size: 0;
+    transition: transform 0.1s;
+  }
+  .carousel__prev,
+  .carousel__next {
+    position: absolute;
+    top: 50%;
+    width: 2.8rem;
+    aspect-ratio: 1;
+    border-radius: $border-sm;
+    background-position: center center;
+    text-align: center;
+    background: url(/icons/Arrow.svg);
+    background-repeat: no-repeat;
+    background-size: 1.6rem 1.6rem;
+    background-position: 50%;
+  }
+
+  .carousel__prev {
+    background: url(/icons/Arrow.svg);
+    background-repeat: no-repeat;
+    transform: translateY(-50%);
+    background-position: 50%;
+    background-size: 1.2rem 1.2rem;
+    rotate: 180deg;
+    background-color: $slider-arrow-bg;
+    top: 40%;
+  }
+  .carousel__next {
+    background-size: 1.2rem 1.2rem;
+    transform: translateY(-50%);
+    background-color: $slider-arrow-bg;
+  }
+
+  .carousel::before,
+  .carousel__prev {
+    left: $space-200;
+  }
+
+  .carousel::after,
+  .carousel__next {
+    right: $space-200;
+  }
+}
+//// END OF CAROUSEL
+///
+// SEARCH BAR
+form.search-bar {
   margin-inline: auto;
-  margin: 2rem 0;
+  background-color: $darker-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $highlight-color;
+  border: 2px solid $focal-color;
+  width: $project-width;
+  border-radius: $border-lg;
+
+  input.search-bar__input {
+    color: $light-color;
+    font-size: $font-sm;
+    background-color: transparent;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    border: none;
+    width: $project-width;
+    padding: 0.35rem 0.1rem;
+    cursor: auto;
+    &::placeholder {
+      color: rgba($color: $highlight-color, $alpha: $hover-opacity);
+    }
+  }
+  button.search-bar__button {
+    background-color: transparent;
+    border: none;
+    img.search-bar__button__icon {
+      color: inherit;
+      background: inherit;
+      height: 1.7rem;
+      aspect-ratio: 1;
+      object-fit: contain;
+      transition: 0.1s;
+    }
+  }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  font: inherit;
-}
-
-img,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-input {
-  -webkit-appearance: none;
-  box-shadow: none !important;
-}
-:-webkit-autofill {
-  color: $light-color !important;
-}
-
+// NAVIGATION
 nav {
   display: none;
   .legal {
@@ -139,8 +351,8 @@ nav {
     gap: $space-100;
     flex-direction: column;
     p {
+      font-size: $font-legal;
     }
-    font-size: $font-legal;
   }
 }
 nav.show {
@@ -192,15 +404,6 @@ nav.show {
   }
 }
 
-a {
-  text-decoration: none;
-  color: $light-color;
-}
-
-ul {
-  list-style: none;
-}
-
 .steam-site {
   background-color: $bg-color;
   display: flex;
@@ -210,41 +413,7 @@ ul {
   margin: 2rem 0 5rem 0;
 }
 
-img,
-picture,
-svg,
-video {
-  display: block;
-  max-width: 100%;
-  cursor: pointer;
-  object-fit: cover;
-}
-
-input,
-textarea,
-button,
-select {
-  font: inherit;
-  border: transparent;
-  cursor: pointer;
-  outline: none;
-}
-
-input[type="text"] {
-  color: $light-color;
-  cursor: auto;
-  &::placeholder {
-    color: rgba($color: $highlight-color, $alpha: 0.85);
-  }
-}
-
-input[type="submit"]:hover,
-button:hover {
-  opacity: 1;
-  background-color: $button-color !important;
-  outline: none;
-}
-
+// HEADER
 header {
   background: rgb(20, 26, 35);
   background: $header-bg;
@@ -289,58 +458,21 @@ header {
         border: none;
         padding: 0;
         cursor: pointer;
-        font-size: 0; /* Hide text content */
+        font-size: 0;
       }
 
       .header__menu__button:focus {
-        outline: none; /* Remove outline on focus for better visual appearance */
+        outline: none;
       }
     }
   }
 }
 
+// FEATURED GAMES
 section.featured-games {
   margin-top: calc(-1 * $section-vertical-space);
 }
 
-form.search-bar {
-  margin-inline: auto;
-  background-color: $darker-color;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: $highlight-color;
-  border: 2px solid $focal-color;
-  width: $project-width;
-  border-radius: $border-lg;
-
-  input.search-bar__input {
-    color: $light-color;
-    font-size: $font-sm;
-    background-color: transparent;
-    margin-top: 0.3rem;
-    margin-bottom: 0.3rem;
-    border: none;
-    width: $project-width;
-    padding: 0.35rem 0.1rem;
-    cursor: auto;
-    &::placeholder {
-      color: rgba($color: $highlight-color, $alpha: 0.85);
-    }
-  }
-  button.search-bar__button {
-    background-color: transparent;
-    border: none;
-    img.search-bar__button__icon {
-      color: inherit;
-      background: inherit;
-      height: 1.7rem;
-      aspect-ratio: 1;
-      object-fit: contain;
-      transition: 0.1s;
-    }
-  }
-}
 section.tag-btns {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -369,7 +501,7 @@ section.tag-btns {
     img.tab-btn-img {
       position: absolute;
       opacity: 10%;
-      background-color: rgba($color: $focal-color, $alpha: 1);
+      background-color: $focal-color;
       margin-bottom: 0;
       height: 100%;
       width: 100%;
@@ -392,6 +524,7 @@ section.tag-btns {
   border-radius: $border-lg $border-lg 0 0;
 }
 
+// GAME LIST
 section.game-list {
   width: $project-width;
   margin-inline: auto;
@@ -439,7 +572,6 @@ section.game-list {
       }
     }
   }
-
   .game-list-container {
     background-color: $darker-color;
     background-color: $game-list-bg;
@@ -465,7 +597,7 @@ section.game-list {
         }
         .game-list__card-container {
           display: flex;
-          gap: 2rem;
+          gap: 1.2rem;
           flex-direction: column;
           justify-content: center;
           margin-inline: $card-padding;
@@ -482,19 +614,45 @@ section.game-list {
             }
           }
           .game-list__card__os__price-container {
+            background: $focal-color;
+            background: rgba($color: $focal-color, $alpha: 0.55);
+            padding: 0.55rem 0.85rem;
+            border-radius: 0.3rem;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            img {
+              object-fit: contain;
+            }
             .game-list__card__os-container {
               display: flex;
               flex-direction: row;
               justify-content: space-between;
-              gap: $border-lg;
+              gap: 0.54rem;
               .game-list__card__os {
               }
             }
             .game-list__card__price-container {
-              .game-list__card__price.highlight-color {
+              position: relative;
+              .game-list__card__price {
+                padding-top: 0.1rem;
+                ///
               }
+              .game-list__card__price.highlight-color {
+                ///
+              }
+              // &:after {
+              //   content: "-20%";
+              //   background-color: green;
+              //   padding: 0.1rem 0.2rem;
+              //   margin: 0;
+              //   position: absolute;
+              //   top: 50%;
+              //   transform: translateY(-50%);
+              //   right: 4.1rem;
+              //   font-size: 0.8rem;
+              //   border-radius: 0.2em;
+              // }
             }
           }
         }
@@ -513,10 +671,12 @@ section.game-list {
   }
 }
 
+// QUEUE
 section.queue {
   width: $project-width;
   margin-inline: auto;
   h2.queue__header {
+    font-size: 1.2rem;
     margin-bottom: $border-lg;
   }
   .queue__game-container {
@@ -565,6 +725,7 @@ section.queue {
   }
 }
 
+// FOOTER
 footer {
   margin-top: 3rem;
   width: $project-width;
@@ -607,153 +768,7 @@ footer {
   }
 }
 
-body {
-  max-width: 37.5rem;
-  margin: 0 auto;
-  font-family: "Lato", sans-serif;
-}
-
-ol,
-li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.carousel {
-  position: relative;
-  padding-top: 75%;
-  filter: drop-shadow(0 0 10px #0003);
-  perspective: 100px;
-}
-
-.carousel__viewport {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  overflow-x: scroll;
-  counter-reset: item;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-}
-
-.carousel__slide {
-  position: relative;
-  flex: 0 0 100%;
-  width: 100%;
-  height: 100%;
-  background-color: $bg-color;
-  counter-increment: item;
-  object-fit: cover;
-}
-
-.carousel__snapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  scroll-snap-align: center;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-@media (hover: hover) {
-  .carousel__snapper {
-    animation-name: toNext, snap;
-    animation-timing-function: ease;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-  }
-
-  .carousel__slide:last-child .carousel__snapper {
-    animation-name: toStart, snap;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .carousel__snapper {
-    animation-name: none;
-  }
-}
-
-.carousel:hover .carousel__snapper,
-.carousel:focus-within .carousel__snapper {
-  animation-name: none;
-}
-
-.carousel__navigation {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-}
-
-.carousel__navigation-list,
-.carousel__navigation-item {
-  display: inline-block;
-}
-
-.carousel__navigation-button {
-  display: inline-block;
-  width: 1.5rem;
-  height: 1.5rem;
-  background-clip: content-box;
-  border: 0.25rem solid transparent;
-  border-radius: 50%;
-  font-size: 0;
-  transition: transform 0.1s;
-}
-
-.carousel__prev,
-.carousel__next {
-  position: absolute;
-  top: 50%;
-  width: 2.8rem;
-  aspect-ratio: 1;
-  border-radius: $border-sm;
-  background-position: center center;
-  text-align: center;
-  background: url(/icons/Arrow.svg);
-  background-repeat: no-repeat;
-  background-size: 1.6rem 1.6rem;
-  background-position: 50%;
-}
-
-.carousel__prev {
-  background: url(/icons/Arrow.svg);
-  background-repeat: no-repeat;
-  transform: translateY(-50%);
-  background-position: 50%;
-  background-size: 1.2rem 1.2rem;
-  rotate: 180deg;
-  background-color: $slider-arrow-bg;
-  top: 40%;
-}
-.carousel__next {
-  background-size: 1.2rem 1.2rem;
-  transform: translateY(-50%);
-  background-color: $slider-arrow-bg;
-}
-
-.carousel::before,
-.carousel__prev {
-  left: $space-200;
-}
-
-.carousel::after,
-.carousel__next {
-  right: $space-200;
-}
-////
-
+// ACTUAL STEAM SITE
 .actual-steam-site {
   margin: 2rem 0;
   h2 {

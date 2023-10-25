@@ -6,9 +6,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover and play thousands of games on Steam - your ultimate gaming destination. Explore new releases, top-rated titles, and more.">
+    <meta name="keywords" content="Steam, gaming platform, PC games, video games, game store, game library">
+    <meta name="author" content="Your Name or Your Website">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Steam - Your Ultimate Gaming Destination">
+    <meta property="og:description" content="Discover and play thousands of games on Steam - your ultimate gaming destination. Explore new releases, top-rated titles, and more.">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <title>Steam</title>
+    <title>Steam - The Largest gaming site</title>
 </head>
 <body>
     <div class="steam-site">
@@ -45,7 +51,7 @@
                         tabindex="0"
                         class="carousel__slide">
                         <div class="carousel__snapper">
-                            <img src="/images/PUBG.PNG" alt="PUBG">
+                            <img src="/images/PUBG.webp" alt="PUBG">
                             <a href="#carousel__slide3"
                                class="carousel__prev" aria-label="Previous Slide"></a>
                             <a href="#carousel__slide2"
@@ -56,7 +62,7 @@
                         tabindex="0"
                         class="carousel__slide">
                         <div class="carousel__snapper">
-                            <img src="/images/FarCry6.PNG" alt="FarCry6">
+                            <img src="/images/FarCry6.webp" alt="FarCry6">
                             <a href="#carousel__slide1"
                                class="carousel__prev" aria-label="Previous Slide"></a>
                             <a href="#carousel__slide3"
@@ -67,7 +73,7 @@
                         tabindex="0"
                         class="carousel__slide">
                         <div class="carousel__snapper">
-                            <img src="/images/Darkest Dungeon.PNG" alt="Darkest Dungeon">
+                            <img src="/images/Darkest Dungeon.webp" alt="Darkest Dungeon">
                             <a href="#carousel__slide2"
                                class="carousel__prev" aria-label="Previous Slide"></a>
                             <a href="#carousel__slide1"
@@ -102,39 +108,39 @@
         <section class="tag-btns" aria-label="Find games from different categories">
             <div class="tag-btn" aria-label="New Games">
                 <img class="tab-btn-icon" src="/icons/New.svg" alt="New icon" aria-hidden="true">
-                <img class="tab-btn-img" src="/images/Crusader.PNG" alt="Crusader" aria-hidden="true">
+                <img class="tab-btn-img" src="/images/Crusader.webp" alt="Crusader" aria-hidden="true">
                 <p aria-hidden="true">NEW</p>
             </div>
             <div class="tag-btn" aria-label="Tags">
                 <img class="tab-btn-icon" src="/icons/Tags.svg" alt="Tags icon" aria-hidden="true">
-                <img class="tab-btn-img" src="/images/Darkest Dungeon.PNG" alt="Darkest Dungeon" aria-hidden="true">
+                <img class="tab-btn-img" src="/images/Darkest Dungeon.webp" alt="Darkest Dungeon" aria-hidden="true">
                 <p aria-hidden="true">TAGS</p>
             </div>
             <div class="tag-btn" aria-label="Special Games">
                 <img class="tab-btn-icon" src="/icons/Special.svg" alt="Special icon" aria-hidden="true">
-                <img class="tab-btn-img" src="/images/PUBG.PNG" alt="PUBG" aria-hidden="true">
+                <img class="tab-btn-img" src="/images/PUBG.webp" alt="PUBG" aria-hidden="true">
                 <p aria-hidden="true">SPECIAL</p>
             </div>
             <div class="tag-btn" aria-label="Free Games">
                 <img class="tab-btn-icon" src="/icons/Free.svg" alt="Free icon" aria-hidden="true">
-                <img class="tab-btn-img" src="/images/Stellaris.PNG" alt="Stellaris" aria-hidden="true">
+                <img class="tab-btn-img" src="/images/Stellaris.webp" alt="Stellaris" aria-hidden="true">
                 <p aria-hidden="true">FREE</p>
             </div>
         </section>
         <section class="game-list" aria-label="A list of games under tabs">
             <div class="game-list__tabs-container">
-                <div class="game-list__tabs" aria-label="Tabs">
-                    <div class="game-list__tabs__item" aria-label="New">
-                        <p class="selected tab" id="tab-1" aria-hidden="true">New</p>
+                <div class="game-list__tabs" aria-label="Tabs" role="tablist">
+                    <div class="game-list__tabs__item" aria-label="New" role="tab" aria-selected="true" tabindex="0" data-tab="tab-1">
+                        <p class="selected tab" id="tab-1">New</p>
                     </div>
-                    <div class="game-list__tabs__item" aria-label="Top">
-                        <p class="tab" id="tab-2" aria-hidden="true">Top</p>
+                    <div class="game-list__tabs__item" aria-label="Top" role="tab" tabindex="0" data-tab="tab-2">
+                        <p class="tab" id="tab-2">Top</p>
                     </div>
-                    <div class="game-list__tabs__item" aria-label="Upcoming">
-                        <p class="tab" id="tab-3" aria-hidden="true">Upcoming</p>
+                    <div class="game-list__tabs__item" aria-label="Upcoming" role="tab" tabindex="0" data-tab="tab-3">
+                        <p class="tab" id="tab-3">Upcoming</p>
                     </div>
-                    <div class="game-list__tabs__item" aria-label="Trending">
-                        <p class="tab" id="tab-4" aria-hidden="true">Trending</p>
+                    <div class="game-list__tabs__item" aria-label="Trending" role="tab" tabindex="0" data-tab="tab-4">
+                        <p class="tab" id="tab-4">Trending</p>
                     </div>
                     <div class="more-arrow" aria-hidden="true">
                         <img src="/icons/Arrow.svg" alt="Reveal more tabs">
@@ -142,17 +148,21 @@
                 </div>
             </div>
             <div class="game-list-container">
-                <div class="game-list-container__games" id="game-list-container__games" aria-label="Games"></div>
+                <div class="game-list-container__games" id="game-list-container__games" aria-label="Games" role="tabpanel">
+                    <!-- Games data gets added here from JS -->
+                </div>
                 <a href="#" class="game-list__see-more">See all</a>
             </div>
         </section>
+        
+        
         <section class="queue" aria-label="Your discovery queue">
             <h2 class="queue__header" aria-hidden="true">YOUR DISCOVERY QUEUE</h2>
             <div class="queue__game-container">
                 <button class="see-all" aria-label="see all in discovery queue">See all</button>
-                <img src="images/PUBG.PNG" class="queue-item queue__game-1" aria-hidden="true">
-                <img src="images/Stellaris.PNG" class="queue-item queue__game-2" aria-hidden="true">
-                <img src="images/FarCry6.PNG" class="queue-item queue__game-3" aria-hidden="true">
+                <img src="images/PUBG.webp" class="queue-item queue__game-1" aria-hidden="true">
+                <img src="images/Stellaris.webp" class="queue-item queue__game-2" aria-hidden="true">
+                <img src="images/FarCry6.webp" class="queue-item queue__game-3" aria-hidden="true">
             </div>
         </section>
         <footer>
@@ -182,7 +192,7 @@
     </div>
     <div class="actual-steam-site" aria-label="The actual Steam mobile site view is shown for comparison">
         <h2 aria-hidden="true">Actual Steam mobile view</h2>
-        <img src="/images/actualSteamSite.png" alt="actual steam site" aria-hidden="true">
+        <img src="/images/actualSteamSite.webp" alt="actual steam site" aria-hidden="true">
     </div>
 </body>
 </html>

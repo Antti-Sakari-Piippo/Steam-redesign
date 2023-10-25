@@ -8,6 +8,87 @@
   padding: 0;
 }
 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: rgb(28, 29, 32);
+  background: linear-gradient(90deg, rgb(26, 27, 31) 0%, rgb(12, 12, 20) 48%, rgb(26, 27, 31) 100%);
+  max-width: 37.5rem;
+  width: calc(100% - 3rem);
+  margin-inline: auto;
+  margin: 0 auto;
+  font-family: "Lato", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+ol,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+input {
+  -webkit-appearance: none;
+  box-shadow: none !important;
+}
+
+:-webkit-autofill {
+  color: #ffffff !important;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  cursor: pointer;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
+  border: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+input[type=text] {
+  color: #ffffff;
+  cursor: auto;
+}
+input[type=text]::-moz-placeholder {
+  color: rgba(111, 144, 194, 0.8);
+}
+input[type=text]::placeholder {
+  color: rgba(111, 144, 194, 0.8);
+}
+
+input[type=submit]:hover,
+button:hover {
+  opacity: 1;
+  background-color: #283345 !important;
+  outline: none;
+}
+
 .scroll {
   overflow-x: auto;
   overflow-y: hidden;
@@ -33,35 +114,155 @@
   border: 0;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: rgb(28, 29, 32);
-  background: linear-gradient(90deg, rgb(26, 27, 31) 0%, rgb(12, 12, 20) 48%, rgb(26, 27, 31) 100%);
-  max-width: 414px;
-  width: calc(100% - 3rem);
+.carousel {
+  position: relative;
+  padding-top: 75%;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
+  perspective: 100px;
+}
+.carousel .carousel__viewport {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  overflow-x: scroll;
+  counter-reset: item;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+.carousel .carousel__slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  background-color: #151b24;
+  counter-increment: item;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.carousel .carousel__snapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: center;
+}
+.carousel .carousel__snapper img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media (hover: hover) {
+  .carousel .carousel__snapper {
+    animation-name: toNext, snap;
+    animation-timing-function: ease;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+  .carousel .carousel__slide:last-child .carousel__snapper {
+    animation-name: toStart, snap;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .carousel .carousel__snapper {
+    animation-name: none;
+  }
+}
+.carousel:hover .carousel__snapper, .carousel:focus-within .carousel__snapper {
+  animation-name: none;
+}
+.carousel .carousel__navigation-button {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-clip: content-box;
+  border: 0.25rem solid transparent;
+  border-radius: 50%;
+  font-size: 0;
+  transition: transform 0.1s;
+}
+.carousel .carousel__prev,
+.carousel .carousel__next {
+  position: absolute;
+  top: 50%;
+  width: 2.8rem;
+  aspect-ratio: 1;
+  border-radius: 0.26em;
+  background-position: center center;
+  text-align: center;
+  background: url(/icons/Arrow.svg);
+  background-repeat: no-repeat;
+  background-size: 1.6rem 1.6rem;
+  background-position: 50%;
+}
+.carousel .carousel__prev {
+  background: url(/icons/Arrow.svg);
+  background-repeat: no-repeat;
+  transform: translateY(-50%);
+  background-position: 50%;
+  background-size: 1.2rem 1.2rem;
+  rotate: 180deg;
+  background-color: rgba(21, 27, 36, 0.3);
+  top: 40%;
+}
+.carousel .carousel__next {
+  background-size: 1.2rem 1.2rem;
+  transform: translateY(-50%);
+  background-color: rgba(21, 27, 36, 0.3);
+}
+.carousel .carousel::before,
+.carousel .carousel__prev {
+  left: 2rem;
+}
+.carousel .carousel::after,
+.carousel .carousel__next {
+  right: 2rem;
+}
+
+form.search-bar {
   margin-inline: auto;
-  margin: 2rem 0;
+  background-color: #283345;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6f90c2;
+  border: 2px solid #324157;
+  width: calc(100% - 3rem);
+  border-radius: 0.4em;
 }
-
-* {
-  margin: 0;
-  padding: 0;
-  font: inherit;
+form.search-bar input.search-bar__input {
+  color: #ffffff;
+  font-size: 1.125rem;
+  background-color: transparent;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  border: none;
+  width: calc(100% - 3rem);
+  padding: 0.35rem 0.1rem;
+  cursor: auto;
 }
-
-img,
-svg {
-  display: block;
-  max-width: 100%;
+form.search-bar input.search-bar__input::-moz-placeholder {
+  color: rgba(111, 144, 194, 0.8);
 }
-
-input {
-  -webkit-appearance: none;
-  box-shadow: none !important;
+form.search-bar input.search-bar__input::placeholder {
+  color: rgba(111, 144, 194, 0.8);
 }
-
-:-webkit-autofill {
-  color: #ffffff !important;
+form.search-bar button.search-bar__button {
+  background-color: transparent;
+  border: none;
+}
+form.search-bar button.search-bar__button img.search-bar__button__icon {
+  color: inherit;
+  background: inherit;
+  height: 1.7rem;
+  aspect-ratio: 1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  transition: 0.1s;
 }
 
 nav {
@@ -71,8 +272,11 @@ nav .legal {
   display: flex;
   gap: 1rem;
   flex-direction: column;
+}
+nav .legal p {
   font-size: 0.7rem;
 }
+
 nav.show {
   display: flex;
   flex-direction: column;
@@ -121,15 +325,6 @@ nav.show .close-btn::after {
   text-align: center;
 }
 
-a {
-  text-decoration: none;
-  color: #ffffff;
-}
-
-ul {
-  list-style: none;
-}
-
 .steam-site {
   background-color: #151b24;
   display: flex;
@@ -137,45 +332,6 @@ ul {
   flex-direction: column;
   gap: 2.2rem;
   margin: 2rem 0 5rem 0;
-}
-
-img,
-picture,
-svg,
-video {
-  display: block;
-  max-width: 100%;
-  cursor: pointer;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-input,
-textarea,
-button,
-select {
-  font: inherit;
-  border: transparent;
-  cursor: pointer;
-  outline: none;
-}
-
-input[type=text] {
-  color: #ffffff;
-  cursor: auto;
-}
-input[type=text]::-moz-placeholder {
-  color: rgba(111, 144, 194, 0.85);
-}
-input[type=text]::placeholder {
-  color: rgba(111, 144, 194, 0.85);
-}
-
-input[type=submit]:hover,
-button:hover {
-  opacity: 1;
-  background-color: #283345 !important;
-  outline: none;
 }
 
 header {
@@ -221,56 +377,14 @@ header .header__container .header__menu .header__menu__button {
   border: none;
   padding: 0;
   cursor: pointer;
-  font-size: 0; /* Hide text content */
+  font-size: 0;
 }
 header .header__container .header__menu .header__menu__button:focus {
-  outline: none; /* Remove outline on focus for better visual appearance */
+  outline: none;
 }
 
 section.featured-games {
   margin-top: -2.2rem;
-}
-
-form.search-bar {
-  margin-inline: auto;
-  background-color: #283345;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #6f90c2;
-  border: 2px solid #324157;
-  width: calc(100% - 3rem);
-  border-radius: 0.4em;
-}
-form.search-bar input.search-bar__input {
-  color: #ffffff;
-  font-size: 1.125rem;
-  background-color: transparent;
-  margin-top: 0.3rem;
-  margin-bottom: 0.3rem;
-  border: none;
-  width: calc(100% - 3rem);
-  padding: 0.35rem 0.1rem;
-  cursor: auto;
-}
-form.search-bar input.search-bar__input::-moz-placeholder {
-  color: rgba(111, 144, 194, 0.85);
-}
-form.search-bar input.search-bar__input::placeholder {
-  color: rgba(111, 144, 194, 0.85);
-}
-form.search-bar button.search-bar__button {
-  background-color: transparent;
-  border: none;
-}
-form.search-bar button.search-bar__button img.search-bar__button__icon {
-  color: inherit;
-  background: inherit;
-  height: 1.7rem;
-  aspect-ratio: 1;
-  -o-object-fit: contain;
-     object-fit: contain;
-  transition: 0.1s;
 }
 
 section.tag-btns {
@@ -395,7 +509,7 @@ section.game-list .game-list-container .game-list-container__games .game-list__c
 }
 section.game-list .game-list-container .game-list-container__games .game-list__card .game-list__card-container {
   display: flex;
-  gap: 2rem;
+  gap: 1.2rem;
   flex-direction: column;
   justify-content: center;
   margin-inline: 0.8rem;
@@ -413,14 +527,29 @@ section.game-list .game-list-container .game-list-container__games .game-list__c
   font-size: 0.9rem;
 }
 section.game-list .game-list-container .game-list-container__games .game-list__card .game-list__card-container .game-list__card__os__price-container {
+  background: #324157;
+  background: rgba(50, 65, 87, 0.55);
+  padding: 0.55rem 0.85rem;
+  border-radius: 0.3rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+section.game-list .game-list-container .game-list-container__games .game-list__card .game-list__card-container .game-list__card__os__price-container img {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 section.game-list .game-list-container .game-list-container__games .game-list__card .game-list__card-container .game-list__card__os__price-container .game-list__card__os-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 0.4em;
+  gap: 0.54rem;
+}
+section.game-list .game-list-container .game-list-container__games .game-list__card .game-list__card-container .game-list__card__os__price-container .game-list__card__price-container {
+  position: relative;
+}
+section.game-list .game-list-container .game-list-container__games .game-list__card .game-list__card-container .game-list__card__os__price-container .game-list__card__price-container .game-list__card__price {
+  padding-top: 0.1rem;
 }
 section.game-list .game-list-container a.game-list__see-more {
   font-size: 1.125rem;
@@ -437,6 +566,7 @@ section.queue {
   margin-inline: auto;
 }
 section.queue h2.queue__header {
+  font-size: 1.2rem;
   margin-bottom: 0.4em;
 }
 section.queue .queue__game-container {
@@ -522,152 +652,6 @@ footer .footer__bottom {
 footer .footer__bottom .footer__bottom__copyright {
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.7rem;
-}
-
-body {
-  max-width: 37.5rem;
-  margin: 0 auto;
-  font-family: "Lato", sans-serif;
-}
-
-ol,
-li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.carousel {
-  position: relative;
-  padding-top: 75%;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
-  perspective: 100px;
-}
-
-.carousel__viewport {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  overflow-x: scroll;
-  counter-reset: item;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-}
-
-.carousel__slide {
-  position: relative;
-  flex: 0 0 100%;
-  width: 100%;
-  height: 100%;
-  background-color: #151b24;
-  counter-increment: item;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.carousel__snapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  scroll-snap-align: center;
-}
-.carousel__snapper img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-@media (hover: hover) {
-  .carousel__snapper {
-    animation-name: toNext, snap;
-    animation-timing-function: ease;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-  }
-  .carousel__slide:last-child .carousel__snapper {
-    animation-name: toStart, snap;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .carousel__snapper {
-    animation-name: none;
-  }
-}
-.carousel:hover .carousel__snapper,
-.carousel:focus-within .carousel__snapper {
-  animation-name: none;
-}
-
-.carousel__navigation {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-}
-
-.carousel__navigation-list,
-.carousel__navigation-item {
-  display: inline-block;
-}
-
-.carousel__navigation-button {
-  display: inline-block;
-  width: 1.5rem;
-  height: 1.5rem;
-  background-clip: content-box;
-  border: 0.25rem solid transparent;
-  border-radius: 50%;
-  font-size: 0;
-  transition: transform 0.1s;
-}
-
-.carousel__prev,
-.carousel__next {
-  position: absolute;
-  top: 50%;
-  width: 2.8rem;
-  aspect-ratio: 1;
-  border-radius: 0.26em;
-  background-position: center center;
-  text-align: center;
-  background: url(/icons/Arrow.svg);
-  background-repeat: no-repeat;
-  background-size: 1.6rem 1.6rem;
-  background-position: 50%;
-}
-
-.carousel__prev {
-  background: url(/icons/Arrow.svg);
-  background-repeat: no-repeat;
-  transform: translateY(-50%);
-  background-position: 50%;
-  background-size: 1.2rem 1.2rem;
-  rotate: 180deg;
-  background-color: rgba(21, 27, 36, 0.3);
-  top: 40%;
-}
-
-.carousel__next {
-  background-size: 1.2rem 1.2rem;
-  transform: translateY(-50%);
-  background-color: rgba(21, 27, 36, 0.3);
-}
-
-.carousel::before,
-.carousel__prev {
-  left: 2rem;
-}
-
-.carousel::after,
-.carousel__next {
-  right: 2rem;
 }
 
 .actual-steam-site {

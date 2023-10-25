@@ -13,7 +13,7 @@ const games = [
   {
     name: "FarCry 6",
     genre: "Horror - First Person",
-    img: "FarCry6.PNG",
+    img: "FarCry6.webp",
     link: "farcry6",
     price: "29,99€",
     op: ["Windows.svg", "Linux.svg", "Apple.svg"],
@@ -21,34 +21,34 @@ const games = [
   {
     name: "Darkest Dungeon",
     genre: "Horror - First Person",
-    img: "Darkest Dungeon.PNG",
+    img: "Darkest Dungeon.webp",
     link: "darkestdungeons",
     price: "19,99€",
-    op: ["Windows.svg", "Linux.svg", "Apple.svg"],
+    op: ["Windows.svg", "Apple.svg"],
   },
   {
     name: "Crusader Kings 3",
     genre: "Historical - RGB",
-    img: "Crusader.PNG",
+    img: "Crusader.webp",
     link: "crusader",
     price: "39,99€",
-    op: ["Windows.svg", "Linux.svg", "Apple.svg"],
+    op: ["Windows.svg", "Linux.svg"],
   },
   {
     name: "Days Gone",
     genre: "Survival - Third Person",
-    img: "Days_gone.PNG",
+    img: "Days_gone.webp",
     link: "daysgone",
     price: "49,99€",
-    op: ["Windows.svg", "Linux.svg", "Apple.svg"],
+    op: ["Windows.svg", "Apple.svg"],
   },
   {
     name: "Stellaris",
     genre: "Sci-fi - Strategy",
-    img: "Stellaris.PNG",
+    img: "Stellaris.webp",
     link: "stellaris",
     price: "15,45€",
-    op: ["Windows.svg", "Linux.svg", "Apple.svg"],
+    op: ["Windows.svg"],
   },
 ];
 
@@ -113,7 +113,7 @@ for (elem of gameListTabsItems) {
   });
 }
 
-const getGame = (games, tabLabel) => {
+const getGame = (games) => {
   //clear previously created game cards
   for (item of gameListElems) {
     item.innerHTML = "";
@@ -167,7 +167,6 @@ const getGame = (games, tabLabel) => {
     priceContainer.classList.add("game-list__card__price-container");
 
     const gamePrice = document.createElement("h3");
-    gamePrice.classList.add("game-list__card__price", "highlight-color");
     gamePrice.textContent = elem.game.price;
 
     priceContainer.appendChild(gamePrice);
@@ -211,3 +210,38 @@ window.addEventListener("click", function (e) {
     searchBar.focus();
   }
 });
+
+// select from gamelist
+
+// Your JavaScript code here
+const tabs = document.querySelectorAll("[role='tab']");
+let defaultSelectedTab = tabs[0];
+
+tabs.forEach((tab) => {
+  tab.addEventListener("click", function () {
+    selectTab(tab);
+  });
+
+  tab.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      selectTab(tab);
+    }
+  });
+});
+
+function selectTab(selectedTab) {
+  tabs.forEach((tab) => {
+    tab.setAttribute("aria-selected", "false");
+    tab.classList.remove("selected");
+    tab.setAttribute("tabindex", "0");
+  });
+
+  selectedTab.setAttribute("aria-selected", "true");
+  selectedTab.classList.add("selected");
+  selectedTab.setAttribute("tabindex", "0");
+
+  if (defaultSelectedTab !== selectedTab) {
+    defaultSelectedTab.classList.remove("selected");
+  }
+}
