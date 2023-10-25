@@ -238,28 +238,6 @@ button:hover {
   &:focus-within .carousel__snapper {
     animation-name: none;
   }
-  // .carousel__navigation {
-  //   display: none;
-  //   position: absolute;
-  //   right: 0;
-  //   bottom: 0;
-  //   left: 0;
-  //   text-align: center;
-  // }
-  // .carousel__navigation-list,
-  // .carousel__navigation-item {
-  //   display: inline-block;
-  // }
-  .carousel__navigation-button {
-    display: inline-block;
-    width: 1.5rem;
-    height: 1.5rem;
-    background-clip: content-box;
-    border: 0.25rem solid transparent;
-    border-radius: 50%;
-    font-size: 0;
-    transition: transform 0.1s;
-  }
   .carousel__prev,
   .carousel__next {
     position: absolute;
@@ -506,6 +484,10 @@ section.tag-btns {
       height: 100%;
       width: 100%;
       object-fit: cover;
+      // &:focus {
+      //   border: 1px solid white;
+      //   background-color: rgba($color: $darker-color, $alpha: $hover-opacity);
+      // }
     }
     p {
       margin-top: 0.3rem;
@@ -513,8 +495,8 @@ section.tag-btns {
       font-weight: 600;
       z-index: 99999;
     }
-    &:hover {
-      color: red;
+    &:hover,
+    &:focus {
       background-color: rgba($color: $darker-color, $alpha: $hover-opacity);
     }
   }
@@ -629,16 +611,11 @@ section.game-list {
               flex-direction: row;
               justify-content: space-between;
               gap: 0.54rem;
-              .game-list__card__os {
-              }
             }
             .game-list__card__price-container {
               position: relative;
               .game-list__card__price {
                 padding-top: 0.1rem;
-                ///
-              }
-              .game-list__card__price.highlight-color {
                 ///
               }
               // &:after {
@@ -700,6 +677,9 @@ section.queue {
       &:focus {
         padding: 0.65em 3.7em;
         opacity: 0.98;
+      }
+      &:focus {
+        border: 1px solid;
       }
     }
     .queue-item {

@@ -175,16 +175,6 @@ button:hover {
 .carousel:hover .carousel__snapper, .carousel:focus-within .carousel__snapper {
   animation-name: none;
 }
-.carousel .carousel__navigation-button {
-  display: inline-block;
-  width: 1.5rem;
-  height: 1.5rem;
-  background-clip: content-box;
-  border: 0.25rem solid transparent;
-  border-radius: 50%;
-  font-size: 0;
-  transition: transform 0.1s;
-}
 .carousel .carousel__prev,
 .carousel .carousel__next {
   position: absolute;
@@ -430,8 +420,7 @@ section.tag-btns .tag-btn p {
   font-weight: 600;
   z-index: 99999;
 }
-section.tag-btns .tag-btn:hover {
-  color: red;
+section.tag-btns .tag-btn:hover, section.tag-btns .tag-btn:focus {
   background-color: rgba(40, 51, 69, 0.8);
 }
 
@@ -594,6 +583,9 @@ section.queue .queue__game-container .see-all {
 section.queue .queue__game-container .see-all:hover, section.queue .queue__game-container .see-all:focus {
   padding: 0.65em 3.7em;
   opacity: 0.98;
+}
+section.queue .queue__game-container .see-all:focus {
+  border: 1px solid;
 }
 section.queue .queue__game-container .queue-item {
   aspect-ratio: 16/9;
