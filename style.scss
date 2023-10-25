@@ -47,7 +47,8 @@ $header-bg: linear-gradient(
 
 // Font size
 $font-legal: 0.7rem;
-$font-xs: 0.9rem;
+$font-xxs: 0.9rem;
+$font-xm: 0.96rem;
 $font-sm: 1.125rem;
 $font-md: 1.4rem;
 $font-lg: 2rem;
@@ -88,6 +89,10 @@ body {
 a {
   text-decoration: none;
   color: $light-color;
+}
+
+h3 {
+  font-size: $font-sm;
 }
 
 ol,
@@ -437,6 +442,10 @@ header {
         padding: 0;
         cursor: pointer;
         font-size: 0;
+        &:focus-within {
+          border: 1px solid;
+          padding: 3px;
+        }
       }
 
       .header__menu__button:focus {
@@ -579,7 +588,7 @@ section.game-list {
         }
         .game-list__card-container {
           display: flex;
-          gap: 1.2rem;
+          gap: 0.5rem;
           flex-direction: column;
           justify-content: center;
           margin-inline: $card-padding;
@@ -589,15 +598,16 @@ section.game-list {
             flex-direction: column;
             .game-list__card__title {
               font-size: $font-sm;
+              line-height: 1.4;
             }
             .game-list__card__genre {
               color: rgba($color: $light-color, $alpha: 0.65);
-              font-size: $font-xs;
+              font-size: $font-xm;
             }
           }
           .game-list__card__os__price-container {
             background: $focal-color;
-            background: rgba($color: $focal-color, $alpha: 0.55);
+            background: rgba($color: $focal-color, $alpha: 0.4);
             padding: 0.55rem 0.85rem;
             border-radius: 0.3rem;
             display: flex;

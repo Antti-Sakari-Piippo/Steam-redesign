@@ -1,184 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">    
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover and play thousands of games on Steam - your ultimate gaming destination. Explore new releases, top-rated titles, and more.">
-    <meta name="keywords" content="Steam, gaming platform, PC games, video games, game store, game library">
-    <meta name="author" content="Your Name or Your Website">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Steam - Your Ultimate Gaming Destination">
-    <meta property="og:description" content="Discover and play thousands of games on Steam - your ultimate gaming destination. Explore new releases, top-rated titles, and more.">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Discover and play thousands of games on Steam - your ultimate gaming destination. Explore new releases, top-rated titles, and more."
+    />
+    <meta
+      name="keywords"
+      content="Steam, gaming platform, PC games, video games, game store, game library"
+    />
+    <meta name="author" content="Your Name or Your Website" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      property="og:title"
+      content="Steam - Your Ultimate Gaming Destination"
+    />
+    <meta
+      property="og:description"
+      content="Discover and play thousands of games on Steam - your ultimate gaming destination. Explore new releases, top-rated titles, and more."
+    />
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
     <title>Steam - The Largest gaming site</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="steam-site">
-        <header>
-            <div class="header__container">
-                <a role="button" href="#" class="header__logo" aria-label="Home">
-                    <img class="logo__image" src="/icons/steam 1.svg" alt="Steam logo" aria-hidden="true">
-                    <p href="#" class="logo__link" aria-hidden="true">STEAM</p>
-                </a>
-                <div class="header__menu"">
-                    <button class="header__menu__button" id="menu-btn" aria-controls="menu-ul" aria-expanded="false" aria-haspopup="true">
-                        <img class="header__menu__image" src="/icons/Steam_menu.svg" alt="Menu Button">
-                    </button>
-                </div>
-            </div>
-            <nav id="nav">
-                <ul aria-hidden="true" id="menu-ul" aria-label="Main Menu">
-                    <li><a class="nav__link" href="#">Sign In</a></li>
-                    <li><a class="nav__link" href="#">Store</a></li>
-                    <li><a class="nav__link" href="#">Community</a></li>
-                    <li><a class="nav__link" href="#">Support</a></li>
-                    <li><a class="nav__link" href="#">Settings</a></li>
-                </ul>
-                <div class="legal">
-                    <p><img src="/icons/Valve_logo.svg" alt="valve"></p>
-                    <p>© Valve Corporation. All rights reserved. All trademarks are property of their respective owners in the US and other countries</p>
-                </di>
-            </nav>
-        </header>
-        <section class="featured-games scroll">
-            <section class="carousel" aria-label="Featured Games Gallery">
-                <ol class="carousel__viewport">
-                    <li id="carousel__slide1"
-                        tabindex="0"
-                        class="carousel__slide">
-                        <div class="carousel__snapper">
-                            <img src="/images/PUBG.webp" alt="PUBG">
-                            <a href="#carousel__slide3"
-                               class="carousel__prev" aria-label="Previous Slide"></a>
-                            <a href="#carousel__slide2"
-                               class="carousel__next" aria-label="Next Slide"></a>
-                        </div>
-                    </li>
-                    <li id="carousel__slide2"
-                        tabindex="0"
-                        class="carousel__slide">
-                        <div class="carousel__snapper">
-                            <img src="/images/FarCry6.webp" alt="FarCry6">
-                            <a href="#carousel__slide1"
-                               class="carousel__prev" aria-label="Previous Slide"></a>
-                            <a href="#carousel__slide3"
-                               class="carousel__next" aria-label="Next Slide"></a>
-                        </div>
-                    </li>
-                    <li id="carousel__slide3"
-                        tabindex="0"
-                        class="carousel__slide">
-                        <div class="carousel__snapper">
-                            <img src="/images/Darkest Dungeon.webp" alt="Darkest Dungeon">
-                            <a href="#carousel__slide2"
-                               class="carousel__prev" aria-label="Previous Slide"></a>
-                            <a href="#carousel__slide1"
-                               class="carousel__next" aria-label="Next Slide"></a>
-                        </div>
-                    </li>
-                </ol>
-            </section>
-        </section>
-        <form class="search-bar" id="site-search" role="search" aria-label="Site wide">
-            <input type="text" class="search-bar__input" id="search-bar__input" placeholder="Search" name="search">
-            <button class="search-bar__button" value="Submit" type="submit" aria-label="Search">
-                <img class="search-bar__button__icon" src="/icons/Search_icon.svg" alt="Search">
+      <header>
+        <div class="header__container">
+          <a
+            role="button"
+            href="#"
+            class="header__logo"
+            aria-label="Home"
+            tabindex="0"
+          >
+            <img
+              class="logo__image"
+              src="/icons/steam 1.svg"
+              alt="Steam logo"
+              aria-hidden="true"
+            />
+            <p class="logo__link" aria-hidden="true">STEAM</p>
+          </a>
+          <div class="header__menu">
+            <button
+              class="header__menu__button"
+              id="menu-btn"
+              aria-controls="menu-ul"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              <img
+                class="header__menu__image"
+                src="/icons/Steam_menu.svg"
+                alt="Menu Button"
+                aria-hidden="true"
+              />
             </button>
-        </form>
-        <section class="tag-btns" aria-label="Find games from different categories">
-            <div class="tag-btn" aria-label="New Games" tabindex="0">
-                <img class="tab-btn-icon" src="/icons/New.svg" alt="New icon" aria-hidden="true">
-                <img class="tab-btn-img" src="/images/Crusader.webp" alt="Crusader"  aria-hidden="true">
-                <p aria-hidden="true">NEW</p>
-            </div>
-            <div class="tag-btn" aria-label="Tags" tabindex="0">
-                <img class="tab-btn-icon" src="/icons/Tags.svg" alt="Tags icon" aria-hidden="true">
-                <img class="tab-btn-img" src="/images/Darkest Dungeon.webp" alt="Darkest Dungeon" aria-hidden="true">
-                <p aria-hidden="true">TAGS</p>
-            </div>
-            <div class="tag-btn" aria-label="Special Games" tabindex="0" >
-                <img class="tab-btn-icon" src="/icons/Special.svg" alt="Special icon" aria-hidden="true">
-                <img class="tab-btn-img" src="/images/PUBG.webp" alt="PUBG" aria-hidden="true">
-                <p aria-hidden="true">SPECIAL</p>
-            </div>
-            <div class="tag-btn" aria-label="Free Games" tabindex="0">
-                <img class="tab-btn-icon" src="/icons/Free.svg" alt="Free icon" aria-hidden="true">
-                <img class="tab-btn-img" src="/images/Stellaris.webp" alt="Stellaris" aria-hidden="true">
-                <p aria-hidden="true">FREE</p>
-            </div>
+          </div>
+        </div>
+        <nav id="nav">
+          <ul aria-hidden="true" id="menu-ul" aria-label="Main Menu">
+            <li><a class="nav__link" href="#" tabindex="0">Sign In</a></li>
+            <li><a class="nav__link" href="#" tabindex="0">Store</a></li>
+            <li><a class="nav__link" href="#" tabindex="0">Community</a></li>
+            <li><a class="nav__link" href="#" tabindex="0">Support</a></li>
+            <li><a class="nav__link" href="#" tabindex="0">Settings</a></li>
+            <li>
+              <a
+                class="nav__link"
+                href="#"
+                tabindex="0"
+                aria-label="close navigation"
+                aria-expanded="false"
+                aria-hidden="true"
+                >X</a
+              >
+            </li>
+          </ul>
+          <div class="legal">
+            <p>
+              <img src="/icons/Valve_logo.svg" alt="Valve" aria-hidden="true" />
+            </p>
+            <p>
+              © Valve Corporation. All rights reserved. All trademarks are
+              property of their respective owners in the US and other countries
+            </p>
+          </div>
+        </nav>
+      </header>
+      <section class="featured-games scroll">
+        <section class="carousel" aria-label="Featured Games Gallery">
+          <ol class="carousel__viewport">
+            <li id="carousel__slide1" tabindex="0" class="carousel__slide">
+              <div class="carousel__snapper">
+                <img src="/images/PUBG.webp" alt="PUBG" />
+                <a
+                  href="#carousel__slide3"
+                  class="carousel__prev"
+                  aria-label="Previous Slide"
+                ></a>
+                <a
+                  href="#carousel__slide2"
+                  class="carousel__next"
+                  aria-label="Next Slide"
+                ></a>
+              </div>
+            </li>
+            <li id="carousel__slide2" tabindex="0" class="carousel__slide">
+              <div class="carousel__snapper">
+                <img src="/images/FarCry6.webp" alt="FarCry6" />
+                <a
+                  href="#carousel__slide1"
+                  class="carousel__prev"
+                  aria-label="Previous Slide"
+                ></a>
+                <a
+                  href="#carousel__slide3"
+                  class="carousel__next"
+                  aria-label="Next Slide"
+                ></a>
+              </div>
+            </li>
+            <li id="carousel__slide3" tabindex="0" class="carousel__slide">
+              <div class="carousel__snapper">
+                <img src="/images/Darkest Dungeon.webp" alt="Darkest Dungeon" />
+                <a
+                  href="#carousel__slide2"
+                  class="carousel__prev"
+                  aria-label="Previous Slide"
+                ></a>
+                <a
+                  href="#carousel__slide1"
+                  class="carousel__next"
+                  aria-label="Next Slide"
+                ></a>
+              </div>
+            </li>
+          </ol>
         </section>
-        <section class="game-list" aria-label="A list of games under tabs">
-            <div class="game-list__tabs-container">
-                <div class="game-list__tabs" aria-label="Tabs" role="tablist">
-                    <div class="game-list__tabs__item" aria-label="New" role="tab" aria-selected="true" tabindex="0" data-tab="tab-1">
-                        <p class="selected tab" id="tab-1">New</p>
-                    </div>
-                    <div class="game-list__tabs__item" aria-label="Top" role="tab" tabindex="0" data-tab="tab-2">
-                        <p class="tab" id="tab-2">Top</p>
-                    </div>
-                    <div class="game-list__tabs__item" aria-label="Upcoming" role="tab" tabindex="0" data-tab="tab-3">
-                        <p class="tab" id="tab-3">Upcoming</p>
-                    </div>
-                    <div class="game-list__tabs__item" aria-label="Trending" role="tab" tabindex="0" data-tab="tab-4">
-                        <p class="tab" id="tab-4">Trending</p>
-                    </div>
-                    <div class="more-arrow" aria-hidden="true">
-                        <img src="/icons/Arrow.svg" alt="Reveal more tabs">
-                    </div>
-                </div>
+      </section>
+      <form
+        class="search-bar"
+        id="site-search"
+        role="search"
+        aria-label="Site wide"
+      >
+        <input
+          type="text"
+          class="search-bar__input"
+          id="search-bar__input"
+          placeholder="Search"
+          name="search"
+        />
+        <button
+          class="search-bar__button"
+          value="Submit"
+          type="submit"
+          aria-label="Search"
+        >
+          <img
+            class="search-bar__button__icon"
+            src="/icons/Search_icon.svg"
+            alt="Search"
+          />
+        </button>
+      </form>
+      <section
+        class="tag-btns"
+        aria-label="Find games from different categories"
+      >
+        <a href="#" class="tag-btn" aria-label="New Games" tabindex="0">
+          <img
+            class="tab-btn-icon"
+            src="/icons/New.svg"
+            alt="New icon"
+            aria-hidden="true"
+          />
+          <img
+            class="tab-btn-img"
+            src="/images/Crusader.webp"
+            alt="Crusader"
+            aria-hidden="true"
+          />
+          <p aria-hidden="true">NEW</p>
+        </a>
+        <a href="#" class="tag-btn" aria-label="Tags" tabindex="0">
+          <img
+            class="tab-btn-icon"
+            src="/icons/Tags.svg"
+            alt="Tags icon"
+            aria-hidden="true"
+          />
+          <img
+            class="tab-btn-img"
+            src="/images/Darkest Dungeon.webp"
+            alt="Darkest Dungeon"
+            aria-hidden="true"
+          />
+          <p aria-hidden="true">TAGS</p>
+        </a>
+        <a href="#" class="tag-btn" aria-label="Special Games" tabindex="0">
+          <img
+            class="tab-btn-icon"
+            src="/icons/Special.svg"
+            alt="Special icon"
+            aria-hidden="true"
+          />
+          <img
+            class="tab-btn-img"
+            src="/images/PUBG.webp"
+            alt="PUBG"
+            aria-hidden="true"
+          />
+          <p aria-hidden="true">SPECIAL</p>
+        </a>
+        <a href="#" class="tag-btn" aria-label="Free Games" tabindex="0">
+          <img
+            class="tab-btn-icon"
+            src="/icons/Free.svg"
+            alt="Free icon"
+            aria-hidden="true"
+          />
+          <img
+            class="tab-btn-img"
+            src="/images/Stellaris.webp"
+            alt="Stellaris"
+            aria-hidden="true"
+          />
+          <p aria-hidden="true">FREE</p>
+        </a>
+      </section>
+      <section class="game-list" aria-label="A list of games under tabs">
+        <div class="game-list__tabs-container">
+          <div class="game-list__tabs" aria-label="Tabs" role="tablist">
+            <div
+              class="game-list__tabs__item"
+              aria-label="New"
+              role="tab"
+              aria-selected="true"
+              tabindex="0"
+              data-tab="tab-1"
+            >
+              <p class="selected tab" id="tab-1">New</p>
             </div>
-            <div class="game-list-container">
-                <div class="game-list-container__games" id="game-list-container__games" aria-label="Games" role="tabpanel">
-                    <!-- Games data gets added here from JS -->
-                </div>
-                <a href="#" class="game-list__see-more">See all</a>
+            <div
+              class="game-list__tabs__item"
+              aria-label="Top"
+              role="tab"
+              tabindex="0"
+              data-tab="tab-2"
+            >
+              <p class="tab" id="tab-2">Top</p>
             </div>
-        </section>
-        
-        
-        <section class="queue" aria-label="Your discovery queue">
-            <h2 class="queue__header" aria-hidden="true">YOUR DISCOVERY QUEUE</h2>
-            <div class="queue__game-container">
-                <button class="see-all" aria-label="see all in discovery queue">See all</button>
-                <img src="images/PUBG.webp" class="queue-item queue__game-1" aria-hidden="true">
-                <img src="images/Stellaris.webp" class="queue-item queue__game-2" aria-hidden="true">
-                <img src="images/FarCry6.webp" class="queue-item queue__game-3" aria-hidden="true">
+            <div
+              class="game-list__tabs__item"
+              aria-label="Upcoming"
+              role="tab"
+              tabindex="0"
+              data-tab="tab-3"
+            >
+              <p class="tab" id="tab-3">Upcoming</p>
             </div>
-        </section>
-        <footer>
-            <div class="footer-container" aria-labelledby="footer-heading">
-                <div>
-                    <h2 class="visually-hidden" id="footer-heading">Footer Links</h2>
-                    <div role="group" class="footer__links" aria-label="Footer links">
-                        <ul>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Legal</a></li>
-                            <li><a href="#">Cookies</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">Steam Subscriber Agreement</a></li>
-                            <li><a href="#">Refunds</a></li>
-                        </ul>
-                    </div>
-                </div>
+            <div
+              class="game-list__tabs__item"
+              aria-label="Trending"
+              role="tab"
+              tabindex="0"
+              data-tab="tab-4"
+            >
+              <p class="tab" id="tab-4">Trending</p>
             </div>
-            <div class="footer__bottom">
-                <h4 class="footer__bottom__copyright">
-                    &copy; 2023 Valve Corporation
-                </h4>
-                <img class="footer__bottom__img" src="/icons/Valve_logo.svg" alt="Valve logo" aria-hidden="true">
+            <div class="more-arrow" aria-hidden="true">
+              <img src="/icons/Arrow.svg" alt="Reveal more tabs" />
             </div>
-        </footer>
+          </div>
+        </div>
+        <div class="game-list-container">
+          <div
+            class="game-list-container__games"
+            id="game-list-container__games"
+            aria-label="Games"
+            role="tabpanel"
+          >
+            <!-- Games data gets added here from JS -->
+          </div>
+          <a href="#" class="game-list__see-more">See all</a>
+        </div>
+      </section>
+
+      <section class="queue" aria-label="Your discovery queue">
+        <h2 class="queue__header" aria-hidden="true">YOUR DISCOVERY QUEUE</h2>
+        <div class="queue__game-container">
+          <button class="see-all" aria-label="see all in discovery queue">
+            See all
+          </button>
+          <img
+            src="images/PUBG.webp"
+            class="queue-item queue__game-1"
+            aria-hidden="true"
+          />
+          <img
+            src="images/Stellaris.webp"
+            class="queue-item queue__game-2"
+            aria-hidden="true"
+          />
+          <img
+            src="images/FarCry6.webp"
+            class="queue-item queue__game-3"
+            aria-hidden="true"
+          />
+        </div>
+      </section>
+      <footer>
+        <div class="footer-container" aria-labelledby="footer-heading">
+          <div>
+            <h2 class="visually-hidden" id="footer-heading">Footer Links</h2>
+            <div role="group" class="footer__links" aria-label="Footer links">
+              <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Legal</a></li>
+                <li><a href="#">Cookies</a></li>
+              </ul>
+              <ul>
+                <li><a href="#">Steam Subscriber Agreement</a></li>
+                <li><a href="#">Refunds</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <h4 class="footer__bottom__copyright">
+            &copy; 2023 Valve Corporation
+          </h4>
+          <img
+            class="footer__bottom__img"
+            src="/icons/Valve_logo.svg"
+            alt="Valve logo"
+            aria-hidden="true"
+          />
+        </div>
+      </footer>
     </div>
-    <div class="actual-steam-site" aria-label="The actual Steam mobile site view is shown for comparison">
-        <h2 aria-hidden="true">Actual Steam mobile view</h2>
-        <img src="/images/actualSteamSite.webp" alt="actual steam site" aria-hidden="true">
+    <div
+      class="actual-steam-site"
+      aria-label="The actual Steam mobile site view is shown for comparison"
+    >
+      <h2 aria-hidden="true">Actual Steam mobile view</h2>
+      <img
+        src="/images/actualSteamSite.webp"
+        alt="actual steam site"
+        aria-hidden="true"
+      />
     </div>
-</body>
+  </body>
 </html>
-
-

@@ -186,21 +186,70 @@ const getGame = (games) => {
 
 getGame(gameList[0]);
 
-/////////////////////////
+// ...
+
+const closeNavButton = document.querySelector(
+  ".nav__link[aria-label='close navigation']"
+);
+
+closeNavButton.addEventListener("click", closeNav);
+closeNavButton.addEventListener("keydown", function (e) {
+  if (e.key === "Enter" || e.key === " ") {
+    closeNav();
+  }
+});
+
+function closeNav() {
+  nav.classList.remove("show");
+  menuUl.setAttribute("aria-expanded", false);
+  menuUl.setAttribute("aria-hidden", true);
+  menuBtn.setAttribute("aria-expanded", false);
+  menuBtn.focus();
+}
+
+// ...
+
+closeNavButton.addEventListener("keydown", function (e) {
+  if (e.key === "Enter" || e.key === " ") {
+    console.log(
+      "Before removing 'show' class: nav.classList contains 'show' -",
+      nav.classList.contains("show")
+    );
+    nav.classList.remove("show");
+    console.log(
+      "After removing 'show' class: nav.classList contains 'show' -",
+      nav.classList.contains("show")
+    );
+    menuUl.setAttribute("aria-expanded", false);
+    menuUl.setAttribute("aria-hidden", true);
+    menuBtn.setAttribute("aria-expanded", false);
+  }
+});
+
 menuBtn.addEventListener("click", function () {
   nav.classList.add("show");
   menuBtn.classList.add("hide");
-  menuBtn.focus();
   menuUl.setAttribute("aria-expanded", true);
   menuUl.setAttribute("aria-hidden", false);
   menuBtn.setAttribute("aria-expanded", true);
+});
+
+window.addEventListener("keydown", function (e) {
+  if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+    // Handle Enter key or Spacebar press to open the menu
+    nav.classList.add("show");
+    menuBtn.classList.add("hide");
+    menuBtn.focus();
+    menuUl.setAttribute("aria-expanded", true);
+    menuUl.setAttribute("aria-hidden", false);
+    menuBtn.setAttribute("aria-expanded", true);
+  }
 });
 
 window.addEventListener("click", function (e) {
   if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
     nav.classList.remove("show");
     menuBtn.classList.remove("hide");
-    menuBtn.focus();
     menuUl.setAttribute("aria-expanded", false);
     menuUl.setAttribute("aria-hidden", true);
     menuBtn.setAttribute("aria-expanded", false);
@@ -211,9 +260,38 @@ window.addEventListener("click", function (e) {
   }
 });
 
-// select from gamelist
+// NAV FOCUS AND NAV LINK NAVIGATION
+const menuButton = document.getElementById("menu-btn");
+const menuList = document.getElementById("menu-ul");
+const navLinks = document.querySelectorAll(".nav__link");
 
-// Your JavaScript code here
+let currentIndex = 0;
+// Add event listener for keydown events
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+    // Handle arrow key navigation for the menu
+    if (menuButton.getAttribute("aria-expanded") === "true") {
+      if (e.key === "ArrowUp" && currentIndex > 0) {
+        currentIndex--;
+      } else if (e.key === "ArrowDown" && currentIndex < navLinks.length - 1) {
+        currentIndex++;
+      }
+      navLinks[currentIndex].focus();
+    }
+  } else if (e.key === "Enter") {
+    // Handle Enter key press for the menu button
+    menuButton.click();
+  }
+});
+
+// Add focus event listeners for navigation links to track the currently focused link
+navLinks.forEach((link, index) => {
+  link.addEventListener("focus", () => {
+    currentIndex = index;
+  });
+});
+
+// select from gamelist
 const tabs = document.querySelectorAll("[role='tab']");
 let defaultSelectedTab = tabs[0];
 
