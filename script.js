@@ -186,8 +186,24 @@ const getGame = (games) => {
 
 getGame(gameList[0]);
 
-// ...
+// select from gamelist
+const tabs = document.querySelectorAll("[role='tab']");
+let defaultSelectedTab = tabs[0];
 
+tabs.forEach((tab) => {
+  tab.addEventListener("click", function () {
+    selectTab(tab);
+  });
+
+  tab.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      selectTab(tab);
+    }
+  });
+});
+
+// CLOSE NAV
 const closeNavButton = document.querySelector(
   ".nav__link[aria-label='close navigation']"
 );
@@ -207,25 +223,16 @@ function closeNav() {
   menuBtn.focus();
 }
 
-// ...
-
 closeNavButton.addEventListener("keydown", function (e) {
   if (e.key === "Enter" || e.key === " ") {
-    console.log(
-      "Before removing 'show' class: nav.classList contains 'show' -",
-      nav.classList.contains("show")
-    );
     nav.classList.remove("show");
-    console.log(
-      "After removing 'show' class: nav.classList contains 'show' -",
-      nav.classList.contains("show")
-    );
     menuUl.setAttribute("aria-expanded", false);
     menuUl.setAttribute("aria-hidden", true);
     menuBtn.setAttribute("aria-expanded", false);
   }
 });
 
+// SHOW NAV ON MENU BUTTON CLICK
 menuBtn.addEventListener("click", function () {
   nav.classList.add("show");
   menuBtn.classList.add("hide");
@@ -234,18 +241,18 @@ menuBtn.addEventListener("click", function () {
   menuBtn.setAttribute("aria-expanded", true);
 });
 
-window.addEventListener("keydown", function (e) {
-  if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
-    // Handle Enter key or Spacebar press to open the menu
-    nav.classList.add("show");
-    menuBtn.classList.add("hide");
-    menuBtn.focus();
-    menuUl.setAttribute("aria-expanded", true);
-    menuUl.setAttribute("aria-hidden", false);
-    menuBtn.setAttribute("aria-expanded", true);
-  }
-});
+// window.addEventListener("keydown", function (e) {
+//   if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+//     nav.classList.add("show");
+//     menuBtn.classList.add("hide");
+//     menuBtn.focus();
+//     menuUl.setAttribute("aria-expanded", true);
+//     menuUl.setAttribute("aria-hidden", false);
+//     menuBtn.setAttribute("aria-expanded", true);
+//   }
+// });
 
+// CLOSE NAV WHEN PRESSED AWAY FROM NAV
 window.addEventListener("click", function (e) {
   if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
     nav.classList.remove("show");
@@ -288,23 +295,6 @@ document.addEventListener("keydown", (e) => {
 navLinks.forEach((link, index) => {
   link.addEventListener("focus", () => {
     currentIndex = index;
-  });
-});
-
-// select from gamelist
-const tabs = document.querySelectorAll("[role='tab']");
-let defaultSelectedTab = tabs[0];
-
-tabs.forEach((tab) => {
-  tab.addEventListener("click", function () {
-    selectTab(tab);
-  });
-
-  tab.addEventListener("keydown", function (event) {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      selectTab(tab);
-    }
   });
 });
 
