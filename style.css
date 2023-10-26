@@ -231,7 +231,7 @@ form.search-bar {
   border: 2px solid #324157;
   width: calc(100% - 3rem);
   border-radius: 0.4em;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 form.search-bar input.search-bar__input {
   color: #ffffff;
@@ -303,6 +303,7 @@ nav.show ul a.close-nav {
   display: block;
   text-align: center;
   width: 30%;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 nav.show ul li {
   padding: 1rem 0;
