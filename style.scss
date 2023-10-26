@@ -359,7 +359,10 @@ nav.show {
     a.close-nav {
       background-color: $focal-color;
       padding: 0.5rem;
-      border: 1px solid $light-color;
+      margin-inline: auto;
+      display: block;
+      text-align: center;
+      width: 30%;
     }
     li {
       padding: $space-100 0;
