@@ -181,6 +181,10 @@ button:hover {
   border: 0;
 }
 
+input:focus {
+  caret-width: 3px; /* Change the cursor width to 2px */
+}
+
 // CAROUSEL
 .carousel {
   position: relative;
@@ -297,6 +301,7 @@ form.search-bar {
   border: 2px solid $focal-color;
   width: $project-width;
   border-radius: $border-lg;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
 
   input.search-bar__input {
     color: $light-color;
@@ -573,6 +578,7 @@ section.game-list {
     border-radius: 0 $border-sm $border-sm $border-sm;
     $card-padding: calc($project-padding - 0.7rem);
     padding: $card-padding;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.22);
     .game-list-container__games {
       display: flex;
       flex-direction: column;
@@ -585,6 +591,8 @@ section.game-list {
         width: 100%;
         border-radius: $border-sm;
         cursor: pointer;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.22);
+
         .game-list__card__img {
           width: 50%;
           aspect-ratio: 21/9;
@@ -617,6 +625,7 @@ section.game-list {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.22);
             img {
               object-fit: contain;
             }

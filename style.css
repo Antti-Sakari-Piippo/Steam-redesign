@@ -118,6 +118,10 @@ button:hover {
   border: 0;
 }
 
+input:focus {
+  caret-width: 3px; /* Change the cursor width to 2px */
+}
+
 .carousel {
   position: relative;
   padding-top: 75%;
@@ -227,6 +231,7 @@ form.search-bar {
   border: 2px solid #324157;
   width: calc(100% - 3rem);
   border-radius: 0.4em;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
 }
 form.search-bar input.search-bar__input {
   color: #ffffff;
@@ -492,6 +497,7 @@ section.game-list .game-list-container {
   background-color: #1c2534;
   border-radius: 0 0.26em 0.26em 0.26em;
   padding: 0.8rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.22);
 }
 section.game-list .game-list-container .game-list-container__games {
   display: flex;
@@ -506,6 +512,7 @@ section.game-list .game-list-container .game-list-container__games .game-list__c
   width: 100%;
   border-radius: 0.26em;
   cursor: pointer;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.22);
 }
 section.game-list .game-list-container .game-list-container__games .game-list__card .game-list__card__img {
   width: 50%;
@@ -540,6 +547,7 @@ section.game-list .game-list-container .game-list-container__games .game-list__c
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.22);
 }
 section.game-list .game-list-container .game-list-container__games .game-list__card .game-list__card-container .game-list__card__os__price-container img {
   -o-object-fit: contain;
