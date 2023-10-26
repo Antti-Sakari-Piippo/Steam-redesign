@@ -356,6 +356,11 @@ nav.show {
     display: flex;
     flex-direction: column;
     text-align: right;
+    a.close-nav {
+      background-color: $focal-color;
+      padding: 0.5rem;
+      border: 1px solid $light-color;
+    }
     li {
       padding: $space-100 0;
       border-bottom: 1px solid $box-color;
@@ -493,10 +498,6 @@ section.tag-btns {
       height: 100%;
       width: 100%;
       object-fit: cover;
-      // &:focus {
-      //   border: 1px solid white;
-      //   background-color: rgba($color: $darker-color, $alpha: $hover-opacity);
-      // }
     }
     p {
       margin-top: 0.3rem;

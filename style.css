@@ -291,6 +291,11 @@ nav.show ul {
   flex-direction: column;
   text-align: right;
 }
+nav.show ul a.close-nav {
+  background-color: #324157;
+  padding: 0.5rem;
+  border: 1px solid #ffffff;
+}
 nav.show ul li {
   padding: 1rem 0;
   border-bottom: 1px solid #1b232f;

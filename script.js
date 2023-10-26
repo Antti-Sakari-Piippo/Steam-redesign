@@ -119,7 +119,7 @@ const getGame = (games) => {
     item.innerHTML = "";
   }
 
-  //create game cards
+  // create game cards
   for (elem of games) {
     const gameCard = document.createElement("article");
     gameCard.classList.add("game-list__card");
@@ -203,54 +203,44 @@ tabs.forEach((tab) => {
   });
 });
 
-// CLOSE NAV
+// CLOSE NAV WITH KEYBOARD
 const closeNavButton = document.querySelector(
   ".nav__link[aria-label='close navigation']"
 );
 
-closeNavButton.addEventListener("click", closeNav);
 closeNavButton.addEventListener("keydown", function (e) {
   if (e.key === "Enter" || e.key === " ") {
-    closeNav();
-  }
-});
-
-function closeNav() {
-  nav.classList.remove("show");
-  menuUl.setAttribute("aria-expanded", false);
-  menuUl.setAttribute("aria-hidden", true);
-  menuBtn.setAttribute("aria-expanded", false);
-  menuBtn.focus();
-}
-
-closeNavButton.addEventListener("keydown", function (e) {
-  if (e.key === "Enter" || e.key === " ") {
+    console.log("close");
     nav.classList.remove("show");
+    menuBtn.classList.remove("hide");
     menuUl.setAttribute("aria-expanded", false);
     menuUl.setAttribute("aria-hidden", true);
     menuBtn.setAttribute("aria-expanded", false);
   }
 });
-
 // SHOW NAV ON MENU BUTTON CLICK
-menuBtn.addEventListener("click", function () {
-  nav.classList.add("show");
-  menuBtn.classList.add("hide");
-  menuUl.setAttribute("aria-expanded", true);
-  menuUl.setAttribute("aria-hidden", false);
-  menuBtn.setAttribute("aria-expanded", true);
+menuBtn.addEventListener("keydown", function (e) {
+  if (e.key === "Enter" || e.key === " ") {
+    console.log("open");
+    nav.classList.add("show");
+    menuBtn.classList.add("hide");
+    menuBtn.focus();
+    menuUl.setAttribute("aria-expanded", true);
+    menuUl.setAttribute("aria-hidden", false);
+    menuBtn.setAttribute("aria-expanded", true);
+  }
 });
 
-// window.addEventListener("keydown", function (e) {
-//   if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
-//     nav.classList.add("show");
-//     menuBtn.classList.add("hide");
-//     menuBtn.focus();
-//     menuUl.setAttribute("aria-expanded", true);
-//     menuUl.setAttribute("aria-hidden", false);
-//     menuBtn.setAttribute("aria-expanded", true);
-//   }
-// });
+window.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && nav.classList.contains("show")) {
+    nav.classList.remove("show");
+    menuBtn.classList.remove("hide");
+    menuBtn.focus();
+    menuUl.setAttribute("aria-expanded", false);
+    menuUl.setAttribute("aria-hidden", true);
+    menuBtn.setAttribute("aria-expanded", false);
+  }
+});
 
 // CLOSE NAV WHEN PRESSED AWAY FROM NAV
 window.addEventListener("click", function (e) {
@@ -265,37 +255,6 @@ window.addEventListener("click", function (e) {
   if (searchBar.contains(e.target)) {
     searchBar.focus();
   }
-});
-
-// NAV FOCUS AND NAV LINK NAVIGATION
-const menuButton = document.getElementById("menu-btn");
-const menuList = document.getElementById("menu-ul");
-const navLinks = document.querySelectorAll(".nav__link");
-
-let currentIndex = 0;
-// Add event listener for keydown events
-document.addEventListener("keydown", (e) => {
-  if (e.key === "ArrowUp" || e.key === "ArrowDown") {
-    // Handle arrow key navigation for the menu
-    if (menuButton.getAttribute("aria-expanded") === "true") {
-      if (e.key === "ArrowUp" && currentIndex > 0) {
-        currentIndex--;
-      } else if (e.key === "ArrowDown" && currentIndex < navLinks.length - 1) {
-        currentIndex++;
-      }
-      navLinks[currentIndex].focus();
-    }
-  } else if (e.key === "Enter") {
-    // Handle Enter key press for the menu button
-    menuButton.click();
-  }
-});
-
-// Add focus event listeners for navigation links to track the currently focused link
-navLinks.forEach((link, index) => {
-  link.addEventListener("focus", () => {
-    currentIndex = index;
-  });
 });
 
 function selectTab(selectedTab) {
@@ -313,3 +272,20 @@ function selectTab(selectedTab) {
     defaultSelectedTab.classList.remove("selected");
   }
 }
+
+menuBtn.addEventListener("click", function (e) {
+  nav.classList.add("show");
+  menuBtn.classList.add("hide");
+  menuBtn.focus();
+  menuUl.setAttribute("aria-expanded", true);
+  menuUl.setAttribute("aria-hidden", false);
+  menuBtn.setAttribute("aria-expanded", true);
+});
+
+closeNavButton.addEventListener("click", function (e) {
+  nav.classList.remove("show");
+  menuBtn.classList.remove("hide");
+  menuUl.setAttribute("aria-expanded", false);
+  menuUl.setAttribute("aria-hidden", true);
+  menuBtn.setAttribute("aria-expanded", false);
+});
