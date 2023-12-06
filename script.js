@@ -9,6 +9,11 @@ const gameListElems = document.getElementsByClassName(
   "game-list-container__games"
 );
 
+// CLOSE NAV WITH KEYBOARD
+const closeNavButton = document.querySelector(
+  ".nav__link[aria-label='close navigation']"
+);
+
 const games = [
   {
     name: "FarCry 6",
@@ -203,16 +208,9 @@ tabs.forEach((tab) => {
   });
 });
 
-// CLOSE NAV WITH KEYBOARD
-const closeNavButton = document.querySelector(
-  ".nav__link[aria-label='close navigation']"
-);
-
 closeNavButton.addEventListener("keydown", function (e) {
   if (e.key === "Enter" || e.key === " ") {
-    console.log("close");
     nav.classList.remove("show");
-    menuBtn.classList.remove("hide");
     menuUl.setAttribute("aria-expanded", false);
     menuUl.setAttribute("aria-hidden", true);
     menuBtn.setAttribute("aria-expanded", false);
@@ -221,9 +219,7 @@ closeNavButton.addEventListener("keydown", function (e) {
 // SHOW NAV ON MENU BUTTON CLICK
 menuBtn.addEventListener("keydown", function (e) {
   if (e.key === "Enter" || e.key === " ") {
-    console.log("open");
     nav.classList.add("show");
-    menuBtn.classList.add("hide");
     menuBtn.focus();
     menuUl.setAttribute("aria-expanded", true);
     menuUl.setAttribute("aria-hidden", false);
@@ -234,7 +230,6 @@ menuBtn.addEventListener("keydown", function (e) {
 window.addEventListener("keydown", function (e) {
   if (e.key === "Escape" && nav.classList.contains("show")) {
     nav.classList.remove("show");
-    menuBtn.classList.remove("hide");
     menuBtn.focus();
     menuUl.setAttribute("aria-expanded", false);
     menuUl.setAttribute("aria-hidden", true);
@@ -246,7 +241,6 @@ window.addEventListener("keydown", function (e) {
 window.addEventListener("click", function (e) {
   if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
     nav.classList.remove("show");
-    menuBtn.classList.remove("hide");
     menuUl.setAttribute("aria-expanded", false);
     menuUl.setAttribute("aria-hidden", true);
     menuBtn.setAttribute("aria-expanded", false);
@@ -255,6 +249,30 @@ window.addEventListener("click", function (e) {
   if (searchBar.contains(e.target)) {
     searchBar.focus();
   }
+});
+
+menuBtn.addEventListener("click", function (e) {
+  if (nav.classList.contains("show")) {
+    // If the menu is already open, close it
+    nav.classList.remove("show");
+    menuUl.setAttribute("aria-expanded", false);
+    menuUl.setAttribute("aria-hidden", true);
+    menuBtn.setAttribute("aria-expanded", false);
+  } else {
+    // If the menu is closed, open it
+    nav.classList.add("show");
+    menuBtn.focus();
+    menuUl.setAttribute("aria-expanded", true);
+    menuUl.setAttribute("aria-hidden", false);
+    menuBtn.setAttribute("aria-expanded", true);
+  }
+});
+
+closeNavButton.addEventListener("click", function (e) {
+  nav.classList.remove("show");
+  menuUl.setAttribute("aria-expanded", false);
+  menuUl.setAttribute("aria-hidden", true);
+  menuBtn.setAttribute("aria-expanded", false);
 });
 
 function selectTab(selectedTab) {
@@ -272,20 +290,3 @@ function selectTab(selectedTab) {
     defaultSelectedTab.classList.remove("selected");
   }
 }
-
-menuBtn.addEventListener("click", function (e) {
-  nav.classList.add("show");
-  menuBtn.classList.add("hide");
-  menuBtn.focus();
-  menuUl.setAttribute("aria-expanded", true);
-  menuUl.setAttribute("aria-hidden", false);
-  menuBtn.setAttribute("aria-expanded", true);
-});
-
-closeNavButton.addEventListener("click", function (e) {
-  nav.classList.remove("show");
-  menuBtn.classList.remove("hide");
-  menuUl.setAttribute("aria-expanded", false);
-  menuUl.setAttribute("aria-hidden", true);
-  menuBtn.setAttribute("aria-expanded", false);
-});

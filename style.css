@@ -386,6 +386,7 @@ header .header__container .header__menu .header__menu__button {
   padding: 0;
   cursor: pointer;
   font-size: 0;
+  z-index: 9999999;
 }
 header .header__container .header__menu .header__menu__button:focus-within {
   border: 1px solid;
