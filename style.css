@@ -288,7 +288,6 @@ nav.show {
   font-size: 1.4rem;
   padding: 2rem;
   width: 65%;
-  height: 32.5rem;
 }
 nav.show ul {
   margin-top: 3rem;
@@ -408,6 +407,7 @@ section.tag-btns {
   width: calc(100% - 3rem);
   margin-inline: auto;
   cursor: pointer;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 section.tag-btns .tag-btn {
   display: flex;
@@ -481,7 +481,6 @@ section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__
 section.game-list .game-list__tabs-container .game-list__tabs .more-arrow {
   background: #252f40;
   border-radius: 0.26em;
-  width: 2rem;
   width: 1.25rem;
   aspect-ratio: 1/1.4;
   display: grid;
@@ -524,10 +523,11 @@ section.game-list .game-list-container .game-list-container__games .game-list__c
 section.game-list .game-list-container .game-list-container__games .game-list__card .game-list__card-container {
   display: flex;
   gap: 0.5rem;
+  padding-block: 0.6rem;
   flex-direction: column;
   justify-content: center;
   margin-inline: 0.8rem;
-  width: 100%;
+  flex: 1;
 }
 section.game-list .game-list-container .game-list-container__games .game-list__card .game-list__card-container .game-list__card-title-genre-container {
   display: flex;
@@ -680,4 +680,14 @@ footer .footer__bottom .footer__bottom__copyright {
   font-size: 2rem;
   margin-bottom: 2rem;
   text-align: center;
+}
+
+@media screen and (max-width: 550px) {
+  .game-list__card {
+    display: flex;
+    flex-direction: column;
+  }
+  .game-list__card__img {
+    width: 100% !important;
+  }
 }/*# sourceMappingURL=style.css.map */
