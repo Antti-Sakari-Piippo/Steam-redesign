@@ -534,7 +534,7 @@ section.game-list {
   margin-inline: auto;
   position: relative;
   .game-list__tabs-container {
-    overflow: scroll;
+    overflow: hidden;
     .game-list__tabs {
       display: flex;
       justify-content: space-between;

@@ -457,7 +457,7 @@ section.game-list {
   position: relative;
 }
 section.game-list .game-list__tabs-container {
-  overflow: scroll;
+  overflow: hidden;
 }
 section.game-list .game-list__tabs-container .game-list__tabs {
   display: flex;
