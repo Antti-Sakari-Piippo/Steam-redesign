@@ -401,13 +401,12 @@ section.featured-games {
 
 section.tag-btns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   place-items: center normal;
   gap: 0.5rem;
   width: calc(100% - 3rem);
   margin-inline: auto;
   cursor: pointer;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
 }
 section.tag-btns .tag-btn {
   display: flex;
@@ -455,12 +454,16 @@ section.tag-btns .tag-btn:hover, section.tag-btns .tag-btn:focus {
 section.game-list {
   width: calc(100% - 3rem);
   margin-inline: auto;
+  position: relative;
+}
+section.game-list .game-list__tabs-container {
+  overflow: scroll;
 }
 section.game-list .game-list__tabs-container .game-list__tabs {
   display: flex;
-  justify-content: center;
   justify-content: space-between;
   align-items: center;
+  -webkit-overflow-scrolling: touch; /* enable smooth scrolling on iOS */
 }
 section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__item p {
   display: grid;
@@ -478,21 +481,6 @@ section.game-list .game-list__tabs-container .game-list__tabs .game-list__tabs__
   background-color: #1c2534;
   border-radius: 0.4em 0.4em 0 0;
 }
-section.game-list .game-list__tabs-container .game-list__tabs .more-arrow {
-  background: #252f40;
-  border-radius: 0.26em;
-  width: 1.25rem;
-  aspect-ratio: 1/1.4;
-  display: grid;
-  place-content: center;
-  transition: 0.25s;
-}
-section.game-list .game-list__tabs-container .game-list__tabs .more-arrow:hover, section.game-list .game-list__tabs-container .game-list__tabs .more-arrow:focus {
-  opacity: 0.8;
-}
-section.game-list .game-list__tabs-container .game-list__tabs .more-arrow img {
-  aspect-ratio: 1;
-}
 section.game-list .game-list-container {
   background-color: #283345;
   background-color: #1c2534;
@@ -509,7 +497,7 @@ section.game-list .game-list-container .game-list-container__games {
 }
 section.game-list .game-list-container .game-list-container__games .game-list__card {
   display: flex;
-  background-color: #252f40;
+  background-color: hsl(218, 27%, 20%);
   width: 100%;
   border-radius: 0.26em;
   cursor: pointer;
@@ -575,6 +563,28 @@ section.game-list .game-list-container a.game-list__see-more {
 }
 section.game-list .game-list-container a.game-list__see-more:hover, section.game-list .game-list-container a.game-list__see-more:focus {
   opacity: 0.8;
+}
+section.game-list .arrow {
+  position: absolute;
+  right: 0;
+  background: hsl(218, 27%, 20%);
+  border-radius: 0.26em;
+  width: 1.25rem;
+  aspect-ratio: 1/1.4;
+  display: grid;
+  place-content: center;
+  top: 0.2rem;
+  transition: 0.25s;
+}
+section.game-list .arrow:hover, section.game-list .arrow:focus {
+  background: hsl(219, 27%, 30%);
+}
+section.game-list .arrow img {
+  aspect-ratio: 1;
+}
+section.game-list .previous-arrow {
+  transform: rotate(180deg);
+  left: 0;
 }
 
 section.queue {

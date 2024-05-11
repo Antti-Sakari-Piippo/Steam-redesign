@@ -7,7 +7,10 @@ $box-color: #1b232f;
 $focal-color: #324157;
 $light-color: #ffffff;
 $button-color: $darker-color;
-$card-bg-color: #252f40;
+
+$card-bg-color: hsl(218, 27%, 20%);
+$card-bg-color-hover: hsl(218, 27%, 30%);
+
 $game-list-bg: #1a2230;
 $game-list-bg: #1c2534;
 $nav-bg-color: #141c28;
@@ -476,13 +479,12 @@ section.featured-games {
 
 section.tag-btns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   place-items: center normal;
   gap: 0.5rem;
   width: $project-width;
   margin-inline: auto;
   cursor: pointer;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   .tag-btn {
     display: flex;
     width: 100%;
@@ -530,12 +532,14 @@ section.tag-btns {
 section.game-list {
   width: $project-width;
   margin-inline: auto;
+  position: relative;
   .game-list__tabs-container {
+    overflow: scroll;
     .game-list__tabs {
       display: flex;
-      justify-content: center;
       justify-content: space-between;
       align-items: center;
+      -webkit-overflow-scrolling: touch; /* enable smooth scrolling on iOS */
       .game-list__tabs__item {
         p {
           display: grid;
@@ -553,22 +557,6 @@ section.game-list {
         p.selected {
           background-color: $game-list-bg;
           border-radius: $border-lg $border-lg 0 0;
-        }
-      }
-      .more-arrow {
-        background: #252f40;
-        border-radius: $border-sm;
-        width: 1.25rem;
-        aspect-ratio: 1/1.4;
-        display: grid;
-        place-content: center;
-        transition: $hover-transition-time;
-        &:hover,
-        &:focus {
-          opacity: $hover-opacity;
-        }
-        img {
-          aspect-ratio: 1;
         }
       }
     }
@@ -669,6 +657,29 @@ section.game-list {
         opacity: $hover-opacity;
       }
     }
+  }
+  .arrow {
+    position: absolute;
+    right: 0;
+    background: $card-bg-color;
+    border-radius: $border-sm;
+    width: 1.25rem;
+    aspect-ratio: 1/1.4;
+    display: grid;
+    place-content: center;
+    top: 0.2rem;
+    transition: $hover-transition-time;
+    &:hover,
+    &:focus {
+      background: hsl(219, 27%, 30%);
+    }
+    img {
+      aspect-ratio: 1;
+    }
+  }
+  .previous-arrow {
+    transform: rotate(180deg);
+    left: 0;
   }
 }
 

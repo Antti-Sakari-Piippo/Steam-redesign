@@ -9,7 +9,56 @@ const gameListElems = document.getElementsByClassName(
   "game-list-container__games"
 );
 
-// CLOSE NAV WITH KEYBOARD
+const previousArrow = document.querySelector(".previous-arrow");
+const nextArrow = document.querySelector(".next-arrow");
+const tabsContainer = document.querySelector(".game-list__tabs");
+
+// Event listener for previous button click
+previousArrow.addEventListener("click", function () {
+  slideTabs(-200); // Move tabs to the left
+});
+
+// Event listener for next button click
+nextArrow.addEventListener("click", function () {
+  slideTabs(200); // Move tabs to the right
+});
+
+// Function to slide the tabs
+function slideTabs(distance) {
+  // Get the current scroll position
+  let currentScroll = tabsContainer.scrollLeft;
+
+  // Calculate the new scroll position
+  let newScroll = currentScroll + distance;
+
+  // Ensure newScroll is within bounds
+  newScroll = Math.max(
+    0,
+    Math.min(newScroll, tabsContainer.scrollWidth - tabsContainer.clientWidth)
+  );
+
+  // Smoothly scroll to the new position using CSS transition
+  tabsContainer.style.transition = "transform 0.3s ease";
+  tabsContainer.style.transform = `translateX(-${newScroll}px)`;
+
+  // Remove transition after it's completed
+  setTimeout(() => {
+    tabsContainer.style.transition = "";
+  }, 300); // 0.3s is the duration of the transition
+}
+
+// Event listener for previous button click
+previousArrow.addEventListener("click", function () {
+  slideTabs(-200); // Move tabs to the left
+});
+
+// Event listener for next button click
+nextArrow.addEventListener("click", function () {
+  slideTabs(200); // Move tabs to the right
+});
+
+tabsContainer.addEventListener("scroll", function () {});
+
 const closeNavButton = document.querySelector(
   ".nav__link[aria-label='close navigation']"
 );
@@ -101,19 +150,19 @@ for (elem of gameListTabsItems) {
     this.classList.add("selected");
     switch (this.id) {
       case "tab-1":
-        getGame(gameList[0], "New");
+        getGame(gameList[0]);
         break;
       case "tab-2":
-        getGame(gameList[1], "Top");
+        getGame(gameList[1]);
         break;
       case "tab-3":
-        getGame(gameList[2], "Upcoming");
+        getGame(gameList[2]);
         break;
       case "tab-4":
-        getGame(gameList[3], "Trending");
+        getGame(gameList[3]);
         break;
       default:
-        getGame(gameList[0], "New");
+        getGame(gameList[0]);
     }
   });
 }
@@ -189,9 +238,9 @@ const getGame = (games) => {
   }
 };
 
+// Initialize the game list with the default selection
 getGame(gameList[0]);
 
-// select from gamelist
 const tabs = document.querySelectorAll("[role='tab']");
 let defaultSelectedTab = tabs[0];
 
@@ -216,7 +265,7 @@ closeNavButton.addEventListener("keydown", function (e) {
     menuBtn.setAttribute("aria-expanded", false);
   }
 });
-// SHOW NAV ON MENU BUTTON CLICK
+
 menuBtn.addEventListener("keydown", function (e) {
   if (e.key === "Enter" || e.key === " ") {
     nav.classList.add("show");
@@ -237,7 +286,6 @@ window.addEventListener("keydown", function (e) {
   }
 });
 
-// CLOSE NAV WHEN PRESSED AWAY FROM NAV
 window.addEventListener("click", function (e) {
   if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
     nav.classList.remove("show");
@@ -245,7 +293,6 @@ window.addEventListener("click", function (e) {
     menuUl.setAttribute("aria-hidden", true);
     menuBtn.setAttribute("aria-expanded", false);
   }
-  // Set focus to search bar if the click event did not occur on the menu button or navigation
   if (searchBar.contains(e.target)) {
     searchBar.focus();
   }
@@ -253,13 +300,11 @@ window.addEventListener("click", function (e) {
 
 menuBtn.addEventListener("click", function (e) {
   if (nav.classList.contains("show")) {
-    // If the menu is already open, close it
     nav.classList.remove("show");
     menuUl.setAttribute("aria-expanded", false);
     menuUl.setAttribute("aria-hidden", true);
     menuBtn.setAttribute("aria-expanded", false);
   } else {
-    // If the menu is closed, open it
     nav.classList.add("show");
     menuBtn.focus();
     menuUl.setAttribute("aria-expanded", true);
