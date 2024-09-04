@@ -257,6 +257,22 @@ tabs.forEach((tab) => {
   });
 });
 
+// Function to toggle the navigation menu
+function toggleNav() {
+  if (nav.classList.contains("show")) {
+    nav.classList.remove("show");
+    menuUl.setAttribute("aria-expanded", false);
+    menuUl.setAttribute("aria-hidden", true);
+    menuBtn.setAttribute("aria-expanded", false);
+  } else {
+    nav.classList.add("show");
+    menuBtn.focus();
+    menuUl.setAttribute("aria-expanded", true);
+    menuUl.setAttribute("aria-hidden", false);
+    menuBtn.setAttribute("aria-expanded", true);
+  }
+}
+
 closeNavButton.addEventListener("keydown", function (e) {
   if (e.key === "Enter" || e.key === " ") {
     nav.classList.remove("show");
@@ -264,6 +280,29 @@ closeNavButton.addEventListener("keydown", function (e) {
     menuUl.setAttribute("aria-hidden", true);
     menuBtn.setAttribute("aria-expanded", false);
   }
+});
+
+// Event listener for opening/closing the navigation menu when pressing Enter on the menu button
+menuBtn.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    e.preventDefault(); // Prevent the default action (e.g., form submission)
+    toggleNav(); // Toggle the navigation menu
+  }
+});
+
+// Event listener for opening/closing the navigation menu when pressing Enter on the close button
+closeNavButton.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    e.preventDefault(); // Prevent the default action (e.g., form submission)
+    toggleNav(); // Toggle the navigation menu
+  }
+});
+
+closeNavButton.addEventListener("click", function (e) {
+  nav.classList.remove("show");
+  menuUl.setAttribute("aria-expanded", false);
+  menuUl.setAttribute("aria-hidden", true);
+  menuBtn.setAttribute("aria-expanded", false);
 });
 
 menuBtn.addEventListener("keydown", function (e) {
@@ -311,13 +350,6 @@ menuBtn.addEventListener("click", function (e) {
     menuUl.setAttribute("aria-hidden", false);
     menuBtn.setAttribute("aria-expanded", true);
   }
-});
-
-closeNavButton.addEventListener("click", function (e) {
-  nav.classList.remove("show");
-  menuUl.setAttribute("aria-expanded", false);
-  menuUl.setAttribute("aria-hidden", true);
-  menuBtn.setAttribute("aria-expanded", false);
 });
 
 function selectTab(selectedTab) {

@@ -191,7 +191,7 @@ input:focus {
 // CAROUSEL
 .carousel {
   position: relative;
-  padding-top: 75%;
+  padding-block-start: 75%;
   filter: drop-shadow(0 0 10px #0003);
   perspective: 100px;
 
@@ -310,7 +310,7 @@ form.search-bar {
     color: $light-color;
     font-size: $font-sm;
     background-color: transparent;
-    margin-top: 0.3rem;
+    margin-block-start: 0.3rem;
     margin-bottom: 0.3rem;
     border: none;
     width: $project-width;
@@ -336,7 +336,13 @@ form.search-bar {
 
 // NAVIGATION
 nav {
-  display: none;
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  z-index: 9999999;
+  opacity: 0;
+  transition: opacity 0.3s;
   .legal {
     display: flex;
     gap: $space-100;
@@ -347,7 +353,7 @@ nav {
   }
 }
 nav.show {
-  display: flex;
+  opacity: 1;
   flex-direction: column;
   position: absolute;
   justify-content: space-between;
@@ -358,8 +364,9 @@ nav.show {
   font-size: $font-md;
   padding: $space-200;
   width: 65%;
+  height: fit-content;
   ul {
-    margin-top: 3rem;
+    margin-block-start: 3rem;
     display: flex;
     flex-direction: column;
     text-align: right;
@@ -374,8 +381,8 @@ nav.show {
     }
     li {
       padding: $space-100 0;
-      border-bottom: 1px solid $box-color;
-      border-top: 1px solid $box-color;
+      border-block-end: 1px solid $box-color;
+      border-block-start: 1px solid $box-color;
       &:hover {
         opacity: $hover-opacity !important;
       }
@@ -406,6 +413,7 @@ nav.show {
 .steam-site {
   background-color: $bg-color;
   display: flex;
+  overflow: hidden;
   position: relative;
   flex-direction: column;
   gap: $section-vertical-space;
@@ -461,7 +469,6 @@ header {
         z-index: 9999999;
         &:focus-within {
           border: 1px solid;
-          padding: 3px;
         }
       }
 
@@ -474,7 +481,7 @@ header {
 
 // FEATURED GAMES
 section.featured-games {
-  margin-top: calc(-1 * $section-vertical-space);
+  margin-block-start: calc(-1 * $section-vertical-space);
 }
 
 section.tag-btns {
@@ -512,10 +519,10 @@ section.tag-btns {
       object-fit: cover;
     }
     p {
-      margin-top: 0.3rem;
+      margin-block-start: 0.3rem;
       color: $highlight-color;
       font-weight: 600;
-      z-index: 99999;
+      z-index: 9999;
     }
     &:hover,
     &:focus {
@@ -573,7 +580,7 @@ section.game-list {
       flex-direction: column;
       gap: 0.5rem;
       margin-bottom: $space-200;
-      padding-right: 0;
+      padding-inline-end: 0;
       .game-list__card {
         display: flex;
         background-color: $card-bg-color;
@@ -627,7 +634,7 @@ section.game-list {
             .game-list__card__price-container {
               position: relative;
               .game-list__card__price {
-                padding-top: 0.1rem;
+                padding-block-start: 0.1rem;
                 ///
               }
               // &:after {
@@ -729,7 +736,7 @@ section.queue {
     }
     .queue__game-2 {
       width: 44%;
-      margin-left: calc(-2.3 * $space-200);
+      margin-inline-start: calc(-2.3 * $space-200);
       clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
       z-index: 998;
     }
@@ -742,7 +749,7 @@ section.queue {
 
 // FOOTER
 footer {
-  margin-top: 3rem;
+  margin-block-start: 3rem;
   width: $project-width;
   margin-inline: auto;
 
@@ -762,14 +769,14 @@ footer {
         gap: 0.5rem;
         li {
           a {
-            margin-right: 0.5rem;
+            margin-inline-end: 0.5rem;
           }
         }
       }
     }
   }
   .footer__bottom {
-    margin-top: $space-200;
+    margin-block-start: $space-200;
     margin-bottom: $space-100;
     align-items: baseline;
     display: flex;

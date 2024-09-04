@@ -124,7 +124,7 @@ input:focus {
 
 .carousel {
   position: relative;
-  padding-top: 75%;
+  padding-block-start: 75%;
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
   perspective: 100px;
 }
@@ -237,7 +237,7 @@ form.search-bar input.search-bar__input {
   color: #ffffff;
   font-size: 1.125rem;
   background-color: transparent;
-  margin-top: 0.3rem;
+  margin-block-start: 0.3rem;
   margin-bottom: 0.3rem;
   border: none;
   width: calc(100% - 3rem);
@@ -265,7 +265,13 @@ form.search-bar button.search-bar__button img.search-bar__button__icon {
 }
 
 nav {
-  display: none;
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  z-index: 9999999;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 nav .legal {
   display: flex;
@@ -277,7 +283,7 @@ nav .legal p {
 }
 
 nav.show {
-  display: flex;
+  opacity: 1;
   flex-direction: column;
   position: absolute;
   justify-content: space-between;
@@ -288,9 +294,11 @@ nav.show {
   font-size: 1.4rem;
   padding: 2rem;
   width: 65%;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 nav.show ul {
-  margin-top: 3rem;
+  margin-block-start: 3rem;
   display: flex;
   flex-direction: column;
   text-align: right;
@@ -306,8 +314,8 @@ nav.show ul a.close-nav {
 }
 nav.show ul li {
   padding: 1rem 0;
-  border-bottom: 1px solid #1b232f;
-  border-top: 1px solid #1b232f;
+  border-block-end: 1px solid #1b232f;
+  border-block-start: 1px solid #1b232f;
 }
 nav.show ul li:hover {
   opacity: 0.8 !important;
@@ -335,6 +343,7 @@ nav.show .close-btn::after {
 .steam-site {
   background-color: #151b24;
   display: flex;
+  overflow: hidden;
   position: relative;
   flex-direction: column;
   gap: 2.2rem;
@@ -389,14 +398,13 @@ header .header__container .header__menu .header__menu__button {
 }
 header .header__container .header__menu .header__menu__button:focus-within {
   border: 1px solid;
-  padding: 3px;
 }
 header .header__container .header__menu .header__menu__button:focus {
   outline: none;
 }
 
 section.featured-games {
-  margin-top: -2.2rem;
+  margin-block-start: -2.2rem;
 }
 
 section.tag-btns {
@@ -437,10 +445,10 @@ section.tag-btns .tag-btn img.tab-btn-img {
      object-fit: cover;
 }
 section.tag-btns .tag-btn p {
-  margin-top: 0.3rem;
+  margin-block-start: 0.3rem;
   color: #6f90c2;
   font-weight: 600;
-  z-index: 99999;
+  z-index: 9999;
 }
 section.tag-btns .tag-btn:hover, section.tag-btns .tag-btn:focus {
   background-color: rgba(40, 51, 69, 0.8);
@@ -493,7 +501,7 @@ section.game-list .game-list-container .game-list-container__games {
   flex-direction: column;
   gap: 0.5rem;
   margin-bottom: 2rem;
-  padding-right: 0;
+  padding-inline-end: 0;
 }
 section.game-list .game-list-container .game-list-container__games .game-list__card {
   display: flex;
@@ -553,7 +561,7 @@ section.game-list .game-list-container .game-list-container__games .game-list__c
   position: relative;
 }
 section.game-list .game-list-container .game-list-container__games .game-list__card .game-list__card-container .game-list__card__os__price-container .game-list__card__price-container .game-list__card__price {
-  padding-top: 0.1rem;
+  padding-block-start: 0.1rem;
 }
 section.game-list .game-list-container a.game-list__see-more {
   font-size: 1.125rem;
@@ -636,7 +644,7 @@ section.queue .queue__game-container .queue__game-1 {
 }
 section.queue .queue__game-container .queue__game-2 {
   width: 44%;
-  margin-left: -4.6rem;
+  margin-inline-start: -4.6rem;
   -webkit-clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
           clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
   z-index: 998;
@@ -648,7 +656,7 @@ section.queue .queue__game-container .queue__game-3 {
 }
 
 footer {
-  margin-top: 3rem;
+  margin-block-start: 3rem;
   width: calc(100% - 3rem);
   margin-inline: auto;
 }
@@ -668,10 +676,10 @@ footer .footer-container .footer__links ul {
   gap: 0.5rem;
 }
 footer .footer-container .footer__links ul li a {
-  margin-right: 0.5rem;
+  margin-inline-end: 0.5rem;
 }
 footer .footer__bottom {
-  margin-top: 2rem;
+  margin-block-start: 2rem;
   margin-bottom: 1rem;
   align-items: baseline;
   display: flex;
