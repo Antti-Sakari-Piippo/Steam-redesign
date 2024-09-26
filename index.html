@@ -95,7 +95,7 @@
         </nav>
       </header>
       <section class="featured-games scroll">
-        <section class="carousel" aria-label="Featured Games Gallery">
+        <div class="carousel" aria-label="Featured Games Gallery">
           <ol class="carousel__viewport">
             <li id="carousel__slide1" tabindex="0" class="carousel__slide">
               <div class="carousel__snapper">
@@ -143,7 +143,7 @@
               </div>
             </li>
           </ol>
-        </section>
+        </div>
       </section>
       <form
         class="search-bar"
@@ -236,11 +236,14 @@
           <p aria-hidden="true">FREE</p>
         </a>
       </section>
-      <section class="game-list" aria-label="A list of games under tabs">
+      <section class="game-list" aria-labelledby="categorized-games">
         <div class="game-list__tabs-container">
-          <div class="game-list__tabs" aria-label="Tabs" role="tablist">
+          <h2 class="visually-hidden" id="categorized-games">
+            categorized games
+          </h2>
+          <ul role="tablist" class="game-list__tabs" aria-label="Tabs">
             <!--List item -->
-            <div
+            <li
               class="game-list__tabs__item"
               aria-label="New"
               role="tab"
@@ -249,9 +252,9 @@
               data-tab="tab-1"
             >
               <p class="selected tab" id="tab-1">New</p>
-            </div>
+            </li>
             <!--List item -->
-            <div
+            <li
               class="game-list__tabs__item"
               aria-label="Top"
               role="tab"
@@ -259,9 +262,9 @@
               data-tab="tab-2"
             >
               <p class="tab" id="tab-2">Top</p>
-            </div>
+            </li>
             <!--List item -->
-            <div
+            <li
               class="game-list__tabs__item"
               aria-label="Upcoming"
               role="tab"
@@ -269,9 +272,9 @@
               data-tab="tab-3"
             >
               <p class="tab" id="tab-3">Upcoming</p>
-            </div>
+            </li>
             <!--List item -->
-            <div
+            <li
               class="game-list__tabs__item"
               aria-label="Trending"
               role="tab"
@@ -279,9 +282,9 @@
               data-tab="tab-4"
             >
               <p class="tab" id="tab-4">Trending</p>
-            </div>
+            </li>
             <!--List item -->
-            <div
+            <li
               class="game-list__tabs__item"
               aria-label="Favorites"
               role="tab"
@@ -289,9 +292,9 @@
               data-tab="tab-4"
             >
               <p class="tab" id="tab-4">Favorites</p>
-            </div>
+            </li>
             <!--List item -->
-            <div
+            <li
               class="game-list__tabs__item"
               aria-label="Sales"
               role="tab"
@@ -299,9 +302,9 @@
               data-tab="tab-4"
             >
               <p class="tab" id="tab-4">Sales</p>
-            </div>
+            </li>
             <!--List item -->
-            <div
+            <li
               class="game-list__tabs__item"
               aria-label="Picks"
               role="tab"
@@ -309,8 +312,8 @@
               data-tab="tab-4"
             >
               <p class="tab" id="tab-4">Picks</p>
-            </div>
-          </div>
+            </l>
+          </ul>
         </div>
         <div class="game-list-container">
           <div
@@ -386,13 +389,11 @@
     </div>
     <div
       class="actual-steam-site"
-      aria-label="The actual Steam mobile site view is shown for comparison"
     >
-      <h2 aria-hidden="true">Actual Steam mobile view</h2>
+      <h2>Actual Steam mobile view</h2>
       <img
         src="/images/actualSteamSite.webp"
-        alt="actual steam site"
-        aria-hidden="true"
+        alt="Screenshot of the actual Steam mobile site for comparison"
       />
     </div>
   </body>
