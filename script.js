@@ -367,3 +367,36 @@ function selectTab(selectedTab) {
     defaultSelectedTab.classList.remove("selected");
   }
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const carousel = document.querySelector(".carousel__viewport");
+  const slides = document.querySelectorAll(".carousel__slide");
+  const slideCount = slides.length;
+  const slideWidth = carousel.offsetWidth;
+
+  const prevButtons = document.querySelectorAll(".carousel__prev");
+  const nextButtons = document.querySelectorAll(".carousel__next");
+
+  function getCurrentSlideIndex() {
+    return Math.round(carousel.scrollLeft / slideWidth);
+  }
+
+  function goToSlide(index) {
+    const boundedIndex = (index + slideCount) % slideCount; // wrap around
+    const targetScroll = boundedIndex * slideWidth;
+    carousel.scrollTo({ left: targetScroll, behavior: "smooth" });
+  }
+
+  nextButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const currentIndex = getCurrentSlideIndex();
+      goToSlide(currentIndex + 1);
+    });
+  });
+
+  prevButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const currentIndex = getCurrentSlideIndex();
+      goToSlide(currentIndex - 1);
+    });
+  });
+});

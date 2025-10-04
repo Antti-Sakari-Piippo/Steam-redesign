@@ -12,8 +12,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background: rgb(28, 29, 32);
   background: linear-gradient(90deg, rgb(3, 5, 10) 0%, rgb(15, 17, 26) 50%, rgb(3, 5, 10) 100%);
-  max-width: 37.5rem;
-  width: calc(100% - 3rem);
+  max-inline-size: 37.5rem;
+  inline-size: calc(100% - 3rem);
   margin-inline: auto;
   margin: 0 auto;
   font-family: "Lato", sans-serif;
@@ -51,7 +51,7 @@ input {
 img,
 svg {
   display: block;
-  max-width: 100%;
+  max-inline-size: 100%;
 }
 
 img,
@@ -59,7 +59,7 @@ picture,
 svg,
 video {
   display: block;
-  max-width: 100%;
+  max-inline-size: 100%;
   cursor: pointer;
   -o-object-fit: cover;
      object-fit: cover;
@@ -100,7 +100,7 @@ button:hover {
 }
 
 ::-webkit-scrollbar {
-  height: 2px;
+  block-size: 2px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -109,8 +109,8 @@ button:hover {
 
 .visually-hidden {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  inline-size: 1px;
+  block-size: 1px;
   padding: 0;
   margin: -1px;
   overflow: hidden;
@@ -119,50 +119,50 @@ button:hover {
 }
 
 input:focus {
-  caret-width: 3px; /* Change the cursor width to 2px */
+  caret-inline-size: 3px; /* Change the cursor width to 2px */
 }
 
 .carousel {
   position: relative;
-  padding-block-start: 75%;
+  padding-block-start: 56.25%;
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
   perspective: 100px;
 }
 .carousel .carousel__viewport {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   display: flex;
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
   overflow-x: scroll;
-  counter-reset: item;
-  scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  counter-reset: item;
 }
 .carousel .carousel__slide {
-  position: relative;
   flex: 0 0 100%;
-  width: 100%;
-  height: 100%;
+  scroll-snap-align: center;
+  position: relative;
+  inline-size: 100%;
+  block-size: 100%;
   background-color: #151b24;
   counter-increment: item;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 .carousel .carousel__snapper {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  scroll-snap-align: center;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 100%;
+  block-size: 100%;
 }
 .carousel .carousel__snapper img {
-  width: 100%;
-  height: 100%;
+  inline-size: 100%;
+  block-size: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  display: block;
 }
 @media (hover: hover) {
   .carousel .carousel__snapper {
@@ -186,39 +186,29 @@ input:focus {
 .carousel .carousel__prev,
 .carousel .carousel__next {
   position: absolute;
-  top: 50%;
-  width: 2.8rem;
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+  inline-size: 2.6rem;
   aspect-ratio: 1;
-  border-radius: 0.26em;
-  background-position: center center;
-  text-align: center;
-  background: url(/icons/Arrow.svg);
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  cursor: pointer;
   background-repeat: no-repeat;
-  background-size: 1.6rem 1.6rem;
-  background-position: 50%;
+  background-size: 1.2rem 1.2rem;
+  background-position: center;
+  z-index: 10;
+  background-position: 60%;
+  background-size: 0.9rem;
 }
 .carousel .carousel__prev {
-  background: url(/icons/Arrow.svg);
-  background-repeat: no-repeat;
-  transform: translateY(-50%);
-  background-position: 50%;
-  background-size: 1.2rem 1.2rem;
-  rotate: 180deg;
-  background-color: rgba(21, 27, 36, 0.3);
-  top: 40%;
+  inset-inline-start: 1rem;
+  background-image: url("/icons/Arrow.svg");
+  transform: translateY(-50%) rotate(180deg);
 }
 .carousel .carousel__next {
-  background-size: 1.2rem 1.2rem;
-  transform: translateY(-50%);
-  background-color: rgba(21, 27, 36, 0.3);
-}
-.carousel .carousel::before,
-.carousel .carousel__prev {
-  left: 2rem;
-}
-.carousel .carousel::after,
-.carousel .carousel__next {
-  right: 2rem;
+  inset-inline-end: 1rem;
+  background-image: url("/icons/Arrow.svg");
 }
 
 form.search-bar {
@@ -229,7 +219,7 @@ form.search-bar {
   align-items: center;
   color: #6f90c2;
   border: 2px solid #324157;
-  width: calc(100% - 3rem);
+  inline-size: calc(100% - 3rem);
   border-radius: 0.4em;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
 }
@@ -238,9 +228,9 @@ form.search-bar input.search-bar__input {
   font-size: 1.125rem;
   background-color: transparent;
   margin-block-start: 0.3rem;
-  margin-bottom: 0.3rem;
+  margin-block-end: 0.3rem;
   border: none;
-  width: calc(100% - 3rem);
+  inline-size: calc(100% - 3rem);
   padding: 0.35rem 0.1rem;
   cursor: auto;
 }
@@ -257,7 +247,7 @@ form.search-bar button.search-bar__button {
 form.search-bar button.search-bar__button img.search-bar__button__icon {
   color: inherit;
   background: inherit;
-  height: 1.7rem;
+  block-size: 1.7rem;
   aspect-ratio: 1;
   -o-object-fit: contain;
      object-fit: contain;
@@ -266,9 +256,9 @@ form.search-bar button.search-bar__button img.search-bar__button__icon {
 
 nav {
   position: fixed;
-  top: 0;
-  right: -300px;
-  width: 300px;
+  inset-block-start: 0;
+  inset-inline-end: -300px;
+  inline-size: 300px;
   z-index: 9999999;
   opacity: 0;
   transition: opacity 0.3s;
@@ -289,13 +279,13 @@ nav.show {
   justify-content: space-between;
   z-index: 99999;
   background-color: rgba(20, 28, 40, 0.98);
-  right: 0;
-  top: 0;
+  inset-inline-end: 0;
+  inset-block-start: 0;
   font-size: 1.4rem;
   padding: 2rem;
-  width: 65%;
-  height: -moz-fit-content;
-  height: fit-content;
+  inline-size: 65%;
+  block-size: -moz-fit-content;
+  block-size: fit-content;
 }
 nav.show ul {
   margin-block-start: 3rem;
@@ -309,7 +299,7 @@ nav.show ul a.close-nav {
   margin-inline: auto;
   display: block;
   text-align: center;
-  width: 30%;
+  inline-size: 30%;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 nav.show ul li {
@@ -321,12 +311,12 @@ nav.show ul li:hover {
   opacity: 0.8 !important;
 }
 nav.show .close-btn {
-  height: 2rem;
+  block-size: 2rem;
   aspect-ratio: 1;
   display: inline-block;
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  inset-block-start: 1rem;
+  inset-inline-end: 1rem;
 }
 nav.show .close-btn::after {
   content: "×";
@@ -334,8 +324,6 @@ nav.show .close-btn::after {
   inset: 0;
   color: #ffffff;
   font-size: 2rem;
-  line-height: 2rem;
-  text-align: center;
   line-height: 2rem;
   text-align: center;
 }
@@ -361,17 +349,17 @@ header .header__container {
   justify-content: space-between;
   align-items: center;
   margin-inline: auto;
-  width: calc(100% - 3rem);
+  inline-size: calc(100% - 3rem);
 }
 header .header__container .header__logo {
-  width: 2.5rem;
+  inline-size: 2.5rem;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
   gap: 0.3rem;
 }
 header .header__container .header__logo img.logo__image {
-  width: 150px;
+  inline-size: 150px;
   aspect-ratio: 1;
 }
 header .header__container .header__logo a.logo__link {
@@ -411,15 +399,15 @@ section.tag-btns {
   display: grid;
   place-items: center normal;
   gap: 0.5rem;
-  width: calc(100% - 3rem);
+  inline-size: calc(100% - 3rem);
   margin-inline: auto;
   cursor: pointer;
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
 }
 section.tag-btns .tag-btn {
   display: flex;
-  width: 100%;
-  height: 8rem;
+  inline-size: 100%;
+  block-size: 8rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -431,16 +419,16 @@ section.tag-btns .tag-btn {
   border-radius: 0.26em;
 }
 section.tag-btns .tag-btn img.tag-btn-icon {
-  margin-bottom: 0.4em;
+  margin-block-end: 0.4em;
   z-index: 99999;
 }
 section.tag-btns .tag-btn img.tab-btn-img {
   position: absolute;
   opacity: 10%;
   background-color: #324157;
-  margin-bottom: 0;
-  height: 100%;
-  width: 100%;
+  margin-block-end: 0;
+  block-size: 100%;
+  inline-size: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -460,7 +448,7 @@ section.tag-btns .tag-btn:hover, section.tag-btns .tag-btn:focus {
 }
 
 section.game-list {
-  width: calc(100% - 3rem);
+  inline-size: calc(100% - 3rem);
   margin-inline: auto;
   position: relative;
 }
@@ -500,19 +488,19 @@ section.game-list .game-list-container .game-list-container__games {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-bottom: 2rem;
+  margin-block-end: 2rem;
   padding-inline-end: 0;
 }
 section.game-list .game-list-container .game-list-container__games .game-list__card {
   display: flex;
   background-color: hsl(218, 27%, 20%);
-  width: 100%;
+  inline-size: 100%;
   border-radius: 0.26em;
   cursor: pointer;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.22);
 }
 section.game-list .game-list-container .game-list-container__games .game-list__card .game-list__card__img {
-  width: 50%;
+  inline-size: 50%;
   aspect-ratio: 21/9;
   border-radius: 0.26em 0 0 0.26em;
 }
@@ -531,7 +519,7 @@ section.game-list .game-list-container .game-list-container__games .game-list__c
 }
 section.game-list .game-list-container .game-list-container__games .game-list__card .game-list__card-container .game-list__card-title-genre-container .game-list__card__title {
   font-size: 1.125rem;
-  line-height: 1.4;
+  line-block-size: 1.4;
 }
 section.game-list .game-list-container .game-list-container__games .game-list__card .game-list__card-container .game-list__card-title-genre-container .game-list__card__genre {
   color: rgba(255, 255, 255, 0.65);
@@ -574,14 +562,14 @@ section.game-list .game-list-container a.game-list__see-more:hover, section.game
 }
 section.game-list .arrow {
   position: absolute;
-  right: 0;
+  inset-inline-end: 0;
   background: hsl(218, 27%, 20%);
   border-radius: 0.26em;
-  width: 1.25rem;
+  inline-size: 1.25rem;
   aspect-ratio: 1/1.4;
   display: grid;
   place-content: center;
-  top: 0.2rem;
+  inset-block-start: 0.2rem;
   transition: 0.25s;
 }
 section.game-list .arrow:hover, section.game-list .arrow:focus {
@@ -592,16 +580,16 @@ section.game-list .arrow img {
 }
 section.game-list .previous-arrow {
   transform: rotate(180deg);
-  left: 0;
+  inset-inline-start: 0;
 }
 
 section.queue {
-  width: calc(100% - 3rem);
+  inline-size: calc(100% - 3rem);
   margin-inline: auto;
 }
 section.queue h2.queue__header {
   font-size: 1.2rem;
-  margin-bottom: 0.4em;
+  margin-block-end: 0.4em;
 }
 section.queue .queue__game-container {
   position: relative;
@@ -616,10 +604,10 @@ section.queue .queue__game-container .see-all {
   position: absolute;
   transition: 0.25s ease-in-out;
   inset: 0;
-  height: -moz-fit-content;
-  height: fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  block-size: -moz-fit-content;
+  block-size: fit-content;
+  inline-size: -moz-fit-content;
+  inline-size: fit-content;
   margin: auto;
   background-color: rgba(40, 51, 69, 0.92);
   padding: 0.6em 3.5em;
@@ -638,26 +626,24 @@ section.queue .queue__game-container .queue-item {
      object-fit: contain;
 }
 section.queue .queue__game-container .queue__game-1 {
-  width: 40%;
+  inline-size: 40%;
   z-index: 999;
   box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2);
 }
 section.queue .queue__game-container .queue__game-2 {
-  width: 44%;
+  inline-size: 44%;
   margin-inline-start: -4.6rem;
-  -webkit-clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
-          clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
+  clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
   z-index: 998;
 }
 section.queue .queue__game-container .queue__game-3 {
-  width: 29%;
-  -webkit-clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
-          clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
+  inline-size: 29%;
+  clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
 }
 
 footer {
   margin-block-start: 3rem;
-  width: calc(100% - 3rem);
+  inline-size: calc(100% - 3rem);
   margin-inline: auto;
 }
 footer .footer-container .footer__links {
@@ -666,7 +652,7 @@ footer .footer-container .footer__links {
   align-items: center;
   flex-direction: column;
   margin-inline: auto;
-  width: 100%;
+  inline-size: 100%;
   text-align: center;
   gap: 0.5rem;
 }
@@ -680,7 +666,7 @@ footer .footer-container .footer__links ul li a {
 }
 footer .footer__bottom {
   margin-block-start: 2rem;
-  margin-bottom: 1rem;
+  margin-block-end: 1rem;
   align-items: baseline;
   display: flex;
   justify-content: space-between;
@@ -696,16 +682,16 @@ footer .footer__bottom .footer__bottom__copyright {
 }
 .actual-steam-site h2 {
   font-size: 2rem;
-  margin-bottom: 2rem;
+  margin-block-end: 2rem;
   text-align: center;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-inline-size: 550px) {
   .game-list__card {
     display: flex;
     flex-direction: column;
   }
   .game-list__card__img {
-    width: 100% !important;
+    inline-size: 100% !important;
   }
 }/*# sourceMappingURL=style.css.map */
